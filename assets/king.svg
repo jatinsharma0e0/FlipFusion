@@ -1,0 +1,55 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- King -->
+  <g transform="translate(50,70)">
+    <!-- Crown -->
+    <path d="M -15,-25 L -10,-30 L -5,-25 L 0,-30 L 5,-25 L 10,-30 L 15,-25 L 15,-20 L -15,-20 Z" 
+          fill="#ffd700" stroke="#b8860b" stroke-width="1"/>
+    
+    <!-- Crown jewels -->
+    <circle cx="-10" cy="-27" r="2" fill="#dc143c"/>
+    <circle cx="0" cy="-27" r="2" fill="#0000ff"/>
+    <circle cx="10" cy="-27" r="2" fill="#dc143c"/>
+    
+    <!-- Head -->
+    <circle cx="0" cy="-12" r="12" fill="#fdbcb4"/>
+    
+    <!-- Hair -->
+    <path d="M -12,-18 Q -15,-15 -12,-10 Q -8,-8 -5,-12 Q 0,-8 5,-12 Q 8,-8 12,-10 Q 15,-15 12,-18" 
+          fill="#8b4513"/>
+    
+    <!-- Eyes -->
+    <circle cx="-4" cy="-12" r="1.5" fill="black"/>
+    <circle cx="4" cy="-12" r="1.5" fill="black"/>
+    
+    <!-- Mustache -->
+    <path d="M -6,-8 Q 0,-6 6,-8 Q 4,-5 0,-6 Q -4,-5 -6,-8" fill="#8b4513"/>
+    
+    <!-- Beard -->
+    <path d="M -8,-4 Q 0,2 8,-4 Q 6,5 0,8 Q -6,5 -8,-4" fill="#8b4513"/>
+    
+    <!-- Body/Robe -->
+    <path d="M -12,0 L -15,25 L 15,25 L 12,0 Z" fill="#800080"/>
+    
+    <!-- Royal sash -->
+    <path d="M -12,5 L 12,5 L 10,10 L -10,10 Z" fill="#ffd700"/>
+    
+    <!-- Arms -->
+    <ellipse cx="-18" cy="8" rx="4" ry="10" fill="#fdbcb4"/>
+    <ellipse cx="18" cy="8" rx="4" ry="10" fill="#fdbcb4"/>
+    
+    <!-- Sleeves -->
+    <ellipse cx="-18" cy="15" rx="6" ry="8" fill="#800080"/>
+    <ellipse cx="18" cy="15" rx="6" ry="8" fill="#800080"/>
+    
+    <!-- Hands -->
+    <circle cx="-18" cy="20" r="3" fill="#fdbcb4"/>
+    <circle cx="18" cy="20" r="3" fill="#fdbcb4"/>
+    
+    <!-- Scepter -->
+    <rect x="16" y="8" width="2" height="15" fill="#8b4513"/>
+    <circle cx="17" cy="8" r="3" fill="#ffd700"/>
+    <circle cx="17" cy="8" r="1.5" fill="#dc143c"/>
+  </g>
+</svg>

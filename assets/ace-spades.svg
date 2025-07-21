@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- Ace of Spades symbol -->
+  <g transform="translate(50,70)">
+    <!-- Spade shape -->
+    <path d="M 0,-25 C -15,-15 -15,0 -8,8 L -3,8 C -5,15 -5,20 0,20 C 5,20 5,15 3,8 L 8,8 C 15,0 15,-15 0,-25 Z" 
+          fill="black"/>
+  </g>
+  
+  <!-- Corner A and spade -->
+  <g transform="translate(15,20)">
+    <text x="0" y="0" font-family="serif" font-size="16" font-weight="bold" fill="black">A</text>
+    <path d="M 0,5 C -3,7 -3,10 -1,12 L 0,12 C -1,14 -1,15 0,15 C 1,15 1,14 0,12 L 1,12 C 3,10 3,7 0,5 Z" 
+          fill="black"/>
+  </g>
+  
+  <!-- Rotated corner A and spade -->
+  <g transform="translate(85,120) rotate(180)">
+    <text x="0" y="0" font-family="serif" font-size="16" font-weight="bold" fill="black">A</text>
+    <path d="M 0,5 C -3,7 -3,10 -1,12 L 0,12 C -1,14 -1,15 0,15 C 1,15 1,14 0,12 L 1,12 C 3,10 3,7 0,5 Z" 
+          fill="black"/>
+  </g>
+</svg>

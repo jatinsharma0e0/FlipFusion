@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipFusion - Memory Matching Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen active">
+        <div class="game-container">
+            <div class="config-card">
+                <div class="config-section">
+                    <h2>BOARD SIZE</h2>
+                    <div class="button-group">
+                        <button class="config-btn active" data-size="small">SMALL</button>
+                        <button class="config-btn" data-size="medium">MEDIUM</button>
+                        <button class="config-btn" data-size="large">LARGE</button>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <h2>MATCHABLE PAIRS</h2>
+                    <div class="button-group">
+                        <button class="config-btn" data-pairs="1">1</button>
+                        <button class="config-btn active" data-pairs="2">2</button>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <h2>CARD SET</h2>
+                    <div class="card-preview-grid">
+                        <div class="card-preview" data-card="ace-spades">
+                            <img src="assets/ace-spades.svg" alt="Ace of Spades">
+                        </div>
+                        <div class="card-preview active" data-card="strawberry">
+                            <img src="assets/strawberry.svg" alt="Strawberry">
+                        </div>
+                        <div class="card-preview" data-card="hedgehog">
+                            <img src="assets/hedgehog.svg" alt="Hedgehog">
+                        </div>
+                        <div class="card-preview" data-card="owl">
+                            <img src="assets/owl.svg" alt="Owl">
+                        </div>
+                        <div class="card-preview" data-card="king">
+                            <img src="assets/king.svg" alt="King">
+                        </div>
+                        <div class="card-preview" data-card="knight">
+                            <img src="assets/knight.svg" alt="Knight">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="start-btn" class="start-button">START</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="timer">00:00</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Moves:</span>
+                    <span id="moves">0</span>
+                </div>
+            </div>
+            <div class="game-actions">
+                <button id="pause-btn" class="action-btn">⏸</button>
+                <button id="home-btn" class="action-btn">🏠</button>
+                <button id="new-game-btn" class="action-btn">🔄</button>
+            </div>
+        </div>
+
+        <div class="game-board-container">
+            <div id="game-board" class="game-board"></div>
+        </div>
+    </div>
+
+    <!-- Win Screen Modal -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h2>Congratulations!</h2>
+            <p>You completed the game!</p>
+            <div class="win-stats">
+                <div class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="final-time">00:00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Moves:</span>
+                    <span id="final-moves">0</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="play-again-btn" class="modal-btn">Play Again</button>
+                <button id="back-home-btn" class="modal-btn">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
