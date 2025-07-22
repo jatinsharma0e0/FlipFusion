@@ -1,4 +1,17 @@
 /* Reset and base styles with performance optimizations */
+/* Font Imports */
+@font-face {
+    font-family: 'BringsVintage-Sans';
+    src: url('assets/fonts/BringsVintage-Sans.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BringsVintage-Script';
+    src: url('assets/fonts/BringsVintage-Script.otf') format('opentype');
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +29,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     background: linear-gradient(135deg, #2e8b57, #228b22);
     min-height: 100vh;
     min-height: 100dvh; /* Use dynamic viewport height for mobile */
@@ -69,16 +82,26 @@ body {
     position: relative;
 }
 
+.game-title {
+    font-family: 'BringsVintage-Script', 'Arial', sans-serif;
+    font-size: 48px;
+    color: #8b4513;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+}
+
 .config-section {
     margin-bottom: 30px;
 }
 
 .config-section h2 {
+    font-family: 'BringsVintage-Script', 'Arial', sans-serif;
     color: #8b4513;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
@@ -90,6 +113,7 @@ body {
 }
 
 .config-btn {
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     background: #f5f5dc;
     border: 3px solid #8b4513;
     color: #8b4513;
@@ -170,12 +194,13 @@ body {
 }
 
 .start-button {
+    font-family: 'BringsVintage-Script', 'Arial', sans-serif;
     background: #8b4513;
     color: #f5f5dc;
     border: none;
     padding: 20px 50px;
     border-radius: 20px;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -214,6 +239,7 @@ body {
 }
 
 .info-item {
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     color: #8b4513;
     font-weight: bold;
     font-size: 16px;
@@ -229,6 +255,7 @@ body {
 }
 
 .action-btn {
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     background: #8b4513;
     color: #f5f5dc;
     border: none;
@@ -392,12 +419,15 @@ body {
 }
 
 .modal-content h2 {
+    font-family: 'BringsVintage-Script', 'Arial', sans-serif;
     color: #8b4513;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .modal-content p {
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     color: #8b4513;
     margin-bottom: 25px;
     font-size: 16px;
@@ -417,6 +447,7 @@ body {
 }
 
 .stat-label {
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     display: block;
     color: #8b4513;
     font-weight: bold;
@@ -430,6 +461,7 @@ body {
 }
 
 .modal-btn {
+    font-family: 'BringsVintage-Sans', 'Arial', sans-serif;
     background: #8b4513;
     color: #f5f5dc;
     border: none;
