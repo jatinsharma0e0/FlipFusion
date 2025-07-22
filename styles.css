@@ -1,19 +1,37 @@
-/* Reset and base styles */
+/* Reset and base styles with performance optimizations */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* GPU acceleration for smooth animations */
+*,
+*::before,
+*::after {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #2e8b57, #228b22);
     min-height: 100vh;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
     padding: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Screen management */
@@ -80,10 +98,11 @@ body {
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
     min-width: 100px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    will-change: transform;
 }
 
 .config-btn:hover {
@@ -228,17 +247,20 @@ body {
     border-radius: 15px;
 }
 
-/* Game board sizes */
+/* Game board sizes with responsive considerations */
 .game-board.small {
     grid-template-columns: repeat(4, 1fr);
+    max-width: 400px;
 }
 
 .game-board.medium {
     grid-template-columns: repeat(6, 1fr);
+    max-width: 600px;
 }
 
 .game-board.large {
     grid-template-columns: repeat(8, 1fr);
+    max-width: 800px;
 }
 
 /* Card styles */
@@ -255,8 +277,9 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 0.5s ease-out;
     transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .game-card.flipped .card-inner {
@@ -410,7 +433,14 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive design */
+/* Responsive design for better performance */
+@media (max-width: 1200px) {
+    .config-card {
+        max-width: 550px;
+        padding: 45px 35px;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -459,20 +489,133 @@ body {
         height: 85px;
     }
     
+    .game-board.small {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
     .game-board.medium {
         grid-template-columns: repeat(4, 1fr);
     }
     
     .game-board.large {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     
     .game-header {
         flex-direction: column;
         gap: 15px;
+        padding: 10px 15px;
     }
     
     .game-info {
         gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .config-card {
+        padding: 20px 15px;
+        border-radius: 15px;
+        border-width: 3px;
+    }
+    
+    .config-section {
+        margin-bottom: 25px;
+    }
+    
+    .config-section h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+    }
+    
+    .button-group {
+        gap: 8px;
+    }
+    
+    .config-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+        min-width: 70px;
+        border-radius: 8px;
+    }
+    
+    .card-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        max-width: 200px;
+    }
+    
+    .card-preview {
+        width: 45px;
+        height: 60px;
+        padding: 4px;
+        border-width: 2px;
+        border-radius: 6px;
+    }
+    
+    .start-button {
+        padding: 12px 25px;
+        font-size: 16px;
+        margin-top: 20px;
+        border-radius: 15px;
+        letter-spacing: 1px;
+    }
+    
+    .game-card {
+        width: 50px;
+        height: 70px;
+    }
+    
+    .game-board {
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .game-board.small {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .game-board.medium {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .game-board.large {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 320px) {
+    .config-card {
+        padding: 15px 10px;
+    }
+    
+    .config-section h2 {
+        font-size: 14px;
+    }
+    
+    .config-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+        min-width: 60px;
+    }
+    
+    .card-preview {
+        width: 40px;
+        height: 55px;
+    }
+    
+    .start-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .game-card {
+        width: 45px;
+        height: 65px;
     }
 }

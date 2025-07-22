@@ -7,6 +7,7 @@ FlipFusion is a browser-based memory matching card game built with vanilla HTML,
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Performance requirement: Game must be responsive for all devices without any lag and issues.
 
 ## System Architecture
 
@@ -21,6 +22,8 @@ Preferred communication style: Simple, everyday language.
 - **Class-based Game Logic**: Encapsulates game state and behavior in a single `FlipFusionGame` class
 - **Screen State Management**: Simple show/hide mechanism for different game phases (home, game, results)
 - **SVG Assets**: Vector graphics for scalable card images across different screen sizes
+- **Performance Optimizations**: GPU acceleration, requestAnimationFrame, and optimized CSS transitions for lag-free experience
+- **Responsive Design**: Multiple breakpoints (1200px, 768px, 480px, 320px) ensuring smooth gameplay on all devices
 
 ## Key Components
 

@@ -186,15 +186,18 @@ class FlipFusionGame {
             return;
         }
         
-        cardElement.classList.add('flipped');
-        this.gameState.flippedCards.push(cardElement);
-        
-        if (this.gameState.flippedCards.length === 2) {
-            this.gameState.moves++;
-            this.updateGameDisplay();
+        // Use requestAnimationFrame for smoother animations
+        requestAnimationFrame(() => {
+            cardElement.classList.add('flipped');
+            this.gameState.flippedCards.push(cardElement);
             
-            setTimeout(() => this.checkMatch(), 1000);
-        }
+            if (this.gameState.flippedCards.length === 2) {
+                this.gameState.moves++;
+                this.updateGameDisplay();
+                
+                setTimeout(() => this.checkMatch(), 800);
+            }
+        });
     }
     
     checkMatch() {
@@ -204,17 +207,22 @@ class FlipFusionGame {
         
         if (type1 === type2) {
             // Match found
-            card1.classList.add('matched');
-            card2.classList.add('matched');
-            this.gameState.matchedPairs++;
-            
-            if (this.gameState.matchedPairs === this.gameState.cards.length / 2) {
-                this.endGame();
-            }
+            requestAnimationFrame(() => {
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                this.gameState.matchedPairs++;
+                
+                if (this.gameState.matchedPairs === this.gameState.cards.length / 2) {
+                    // Small delay before showing win modal for better UX
+                    setTimeout(() => this.endGame(), 300);
+                }
+            });
         } else {
-            // No match
-            card1.classList.remove('flipped');
-            card2.classList.remove('flipped');
+            // No match - flip back with slight delay for better visibility
+            requestAnimationFrame(() => {
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+            });
         }
         
         this.gameState.flippedCards = [];
