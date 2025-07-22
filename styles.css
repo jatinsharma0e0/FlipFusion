@@ -2,7 +2,7 @@
 /* Font Imports */
 @font-face {
     font-family: 'FlipFusion-Sans';
-    src: url('assets/fonts/font1-Sans.otf') format('opentype');
+    src: url('assets/fonts/font1.ttf') format('truetype');
     font-display: swap;
 }
 
