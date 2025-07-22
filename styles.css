@@ -139,6 +139,10 @@ body {
     color: #f5f5dc;
 }
 
+.config-btn-pairs {
+    font-family: 'Font1', 'Arial', sans-serif !important;
+}
+
 .card-preview-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
