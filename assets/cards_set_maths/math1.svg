@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- Math equation: 2+2=4 -->
+  <g transform="translate(50,70)">
+    <!-- Number 2 -->
+    <text x="-20" y="-5" font-family="Arial" font-size="24" font-weight="bold" fill="#0066cc">2</text>
+    
+    <!-- Plus sign -->
+    <text x="-8" y="-5" font-family="Arial" font-size="20" font-weight="bold" fill="#ff6600">+</text>
+    
+    <!-- Number 2 -->
+    <text x="2" y="-5" font-family="Arial" font-size="24" font-weight="bold" fill="#0066cc">2</text>
+    
+    <!-- Equals sign -->
+    <text x="12" y="-5" font-family="Arial" font-size="20" font-weight="bold" fill="#ff6600">=</text>
+    
+    <!-- Number 4 -->
+    <text x="22" y="-5" font-family="Arial" font-size="24" font-weight="bold" fill="#009933">4</text>
+    
+    <!-- Decorative elements -->
+    <circle cx="-15" cy="15" r="3" fill="#ffcc00"/>
+    <circle cx="15" cy="15" r="3" fill="#ffcc00"/>
+    <circle cx="0" cy="18" r="2" fill="#ff99cc"/>
+  </g>
+</svg>

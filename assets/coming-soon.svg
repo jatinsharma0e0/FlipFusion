@@ -1,0 +1,20 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- Coming Soon Card -->
+  <g transform="translate(50,70)">
+    <!-- Background -->
+    <rect x="-35" y="-45" width="70" height="90" rx="5" fill="#f0f0f0"/>
+    
+    <!-- Question Mark -->
+    <text x="0" y="-10" font-family="Arial" font-size="40" font-weight="bold" fill="#999" text-anchor="middle">?</text>
+    
+    <!-- "SOON..." text -->
+    <text x="0" y="20" font-family="Arial" font-size="12" font-weight="bold" fill="#666" text-anchor="middle">SOON...</text>
+    
+    <!-- Decorative dots -->
+    <circle cx="-15" cy="30" r="1.5" fill="#ccc"/>
+    <circle cx="0" cy="32" r="1.5" fill="#ccc"/>
+    <circle cx="15" cy="30" r="1.5" fill="#ccc"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- Queen of Spades -->
+  <g transform="translate(50,70)">
+    <!-- Crown -->
+    <path d="M -10,-25 L -6,-28 L -2,-25 L 2,-28 L 6,-25 L 10,-28 L 10,-22 L -10,-22 Z" 
+          fill="#ffd700" stroke="#b8860b" stroke-width="1"/>
+    
+    <!-- Head -->
+    <circle cx="0" cy="-8" r="9" fill="#fdbcb4"/>
+    
+    <!-- Hair -->
+    <path d="M -9,-15 Q -12,-12 -9,-8 Q -6,-6 -3,-10 Q 0,-6 3,-10 Q 6,-6 9,-8 Q 12,-12 9,-15" 
+          fill="#8b4513"/>
+    
+    <!-- Eyes -->
+    <circle cx="-3" cy="-8" r="1" fill="black"/>
+    <circle cx="3" cy="-8" r="1" fill="black"/>
+    
+    <!-- Spade symbol -->
+    <path d="M 0,2 C -6,-3 -6,3 -3,6 L -1,6 C -2,10 -2,12 0,12 C 2,12 2,10 1,6 L 3,6 C 6,3 6,-3 0,2 Z" 
+          fill="black"/>
+    
+    <!-- Corner Q -->
+    <text x="-18" y="-18" font-family="serif" font-size="12" font-weight="bold" fill="black">Q</text>
+  </g>
+</svg>

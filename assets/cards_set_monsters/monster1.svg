@@ -1,0 +1,38 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- Friendly Monster -->
+  <g transform="translate(50,70)">
+    <!-- Body -->
+    <ellipse cx="0" cy="5" rx="15" ry="20" fill="#6a4c93"/>
+    
+    <!-- Head -->
+    <circle cx="0" cy="-15" r="12" fill="#6a4c93"/>
+    
+    <!-- Eyes -->
+    <circle cx="-5" cy="-18" r="3" fill="white"/>
+    <circle cx="5" cy="-18" r="3" fill="white"/>
+    <circle cx="-5" cy="-18" r="1.5" fill="black"/>
+    <circle cx="5" cy="-18" r="1.5" fill="black"/>
+    
+    <!-- Mouth -->
+    <path d="M -6,-10 Q 0,-5 6,-10" stroke="black" stroke-width="2" fill="none"/>
+    
+    <!-- Horns -->
+    <path d="M -8,-25 L -6,-30 L -4,-25" fill="#ff6b6b"/>
+    <path d="M 4,-25 L 6,-30 L 8,-25" fill="#ff6b6b"/>
+    
+    <!-- Arms -->
+    <ellipse cx="-12" cy="0" rx="3" ry="8" fill="#6a4c93"/>
+    <ellipse cx="12" cy="0" rx="3" ry="8" fill="#6a4c93"/>
+    
+    <!-- Legs -->
+    <ellipse cx="-6" cy="22" rx="4" ry="8" fill="#6a4c93"/>
+    <ellipse cx="6" cy="22" rx="4" ry="8" fill="#6a4c93"/>
+    
+    <!-- Spots -->
+    <circle cx="-5" cy="0" r="2" fill="#ff6b6b"/>
+    <circle cx="5" cy="8" r="2" fill="#ff6b6b"/>
+    <circle cx="0" cy="12" r="1.5" fill="#ff6b6b"/>
+  </g>
+</svg>

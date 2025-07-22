@@ -1,0 +1,30 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- UK Flag -->
+  <g transform="translate(50,70)">
+    <!-- Flag pole -->
+    <rect x="-25" y="-25" width="2" height="50" fill="#8b4513"/>
+    
+    <!-- Blue background -->
+    <rect x="-23" y="-25" width="40" height="24" fill="#012169"/>
+    
+    <!-- White diagonal cross -->
+    <path d="M -23,-25 L 17,-1 L 17,-4 L -20,-25 Z" fill="white"/>
+    <path d="M 17,-25 L -23,-1 L -23,-4 L 14,-25 Z" fill="white"/>
+    <path d="M -23,-1 L 17,1 L 17,-1 L -23,-1 Z" fill="white"/>
+    <path d="M -23,1 L 17,-1 L 17,1 L -23,1 Z" fill="white"/>
+    
+    <!-- Red diagonal cross -->
+    <path d="M -21,-25 L 17,-3 L 17,-6 L -18,-25 Z" fill="#c8102e"/>
+    <path d="M 15,-25 L -23,-3 L -23,-6 L 12,-25 Z" fill="#c8102e"/>
+    
+    <!-- White vertical and horizontal -->
+    <rect x="-3" y="-25" width="6" height="24" fill="white"/>
+    <rect x="-23" y="-3" width="40" height="6" fill="white"/>
+    
+    <!-- Red cross -->
+    <rect x="-2" y="-25" width="4" height="24" fill="#c8102e"/>
+    <rect x="-23" y="-2" width="40" height="4" fill="#c8102e"/>
+  </g>
+</svg>

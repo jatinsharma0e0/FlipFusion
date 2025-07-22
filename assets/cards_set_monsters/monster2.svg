@@ -1,0 +1,41 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- Dragon Monster -->
+  <g transform="translate(50,70)">
+    <!-- Body -->
+    <ellipse cx="0" cy="8" rx="14" ry="18" fill="#4ecdc4"/>
+    
+    <!-- Head -->
+    <ellipse cx="0" cy="-12" rx="10" ry="12" fill="#4ecdc4"/>
+    
+    <!-- Snout -->
+    <ellipse cx="0" cy="-5" rx="6" ry="4" fill="#4ecdc4"/>
+    
+    <!-- Eyes -->
+    <circle cx="-4" cy="-15" r="2.5" fill="#ff6b6b"/>
+    <circle cx="4" cy="-15" r="2.5" fill="#ff6b6b"/>
+    <circle cx="-4" cy="-15" r="1" fill="black"/>
+    <circle cx="4" cy="-15" r="1" fill="black"/>
+    
+    <!-- Nostrils -->
+    <circle cx="-2" cy="-8" r="0.8" fill="black"/>
+    <circle cx="2" cy="-8" r="0.8" fill="black"/>
+    
+    <!-- Wings -->
+    <path d="M -14,-5 Q -20,-15 -25,-8 Q -18,0 -14,5" fill="#ffe66d"/>
+    <path d="M 14,-5 Q 20,-15 25,-8 Q 18,0 14,5" fill="#ffe66d"/>
+    
+    <!-- Tail -->
+    <path d="M 0,25 Q 8,30 12,35 Q 8,32 5,28" fill="#4ecdc4"/>
+    
+    <!-- Spikes -->
+    <path d="M -6,-22 L -4,-28 L -2,-22" fill="#ff6b6b"/>
+    <path d="M 2,-22 L 4,-28 L 6,-22" fill="#ff6b6b"/>
+    
+    <!-- Scales -->
+    <circle cx="-6" cy="2" r="1.5" fill="#45b7aa"/>
+    <circle cx="6" cy="6" r="1.5" fill="#45b7aa"/>
+    <circle cx="0" cy="15" r="1.5" fill="#45b7aa"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="96" height="136" rx="8" fill="white" stroke="#ccc" stroke-width="2"/>
+  
+  <!-- King of Hearts -->
+  <g transform="translate(50,70)">
+    <!-- Crown -->
+    <path d="M -12,-25 L -8,-30 L -4,-25 L 0,-30 L 4,-25 L 8,-30 L 12,-25 L 12,-20 L -12,-20 Z" 
+          fill="#ffd700" stroke="#b8860b" stroke-width="1"/>
+    
+    <!-- Head -->
+    <circle cx="0" cy="-10" r="10" fill="#fdbcb4"/>
+    
+    <!-- Eyes -->
+    <circle cx="-3" cy="-10" r="1" fill="black"/>
+    <circle cx="3" cy="-10" r="1" fill="black"/>
+    
+    <!-- Heart symbol -->
+    <path d="M 0,5 C -4,0 -8,0 -8,5 C -8,8 -4,12 0,18 C 4,12 8,8 8,5 C 8,0 4,0 0,5 Z" 
+          fill="#dc143c"/>
+    
+    <!-- Corner K -->
+    <text x="-18" y="-18" font-family="serif" font-size="12" font-weight="bold" fill="#dc143c">K</text>
+    
+    <!-- Corner heart -->
+    <path d="M -15,-8 C -16,-10 -18,-10 -18,-8 C -18,-7 -16,-5 -15,-3 C -14,-5 -12,-7 -12,-8 C -12,-10 -14,-10 -15,-8 Z" 
+          fill="#dc143c"/>
+  </g>
+</svg>

@@ -3,7 +3,7 @@ class FlipFusionGame {
         this.config = {
             boardSize: 'large',
             matchablePairs: 1,
-            cardSet: 'ace-spades'
+            cardSet: 'animals'
         };
         
         this.gameState = {
@@ -17,7 +17,13 @@ class FlipFusionGame {
             isPaused: false
         };
         
-        this.cardTypes = ['ace-spades', 'strawberry', 'hedgehog', 'owl', 'king', 'knight'];
+        this.cardSets = {
+            animals: ['animal1', 'animal2'],
+            classic: ['classic1', 'classic2'],
+            flags: ['flag1', 'flag2'],
+            maths: ['math1', 'math2'],
+            monsters: ['monster1', 'monster2']
+        };
         this.boardSizes = {
             small: { rows: 3, cols: 4, total: 12 },
             medium: { rows: 4, cols: 6, total: 24 },
@@ -66,6 +72,11 @@ class FlipFusionGame {
         
         document.querySelectorAll('[data-card]').forEach(preview => {
             preview.addEventListener('click', (e) => {
+                // Don't allow selection of coming soon card
+                if (e.currentTarget.classList.contains('coming-soon')) {
+                    return;
+                }
+                
                 document.querySelectorAll('[data-card]').forEach(p => p.classList.remove('active'));
                 e.currentTarget.classList.add('active');
                 this.config.cardSet = e.currentTarget.dataset.card;
@@ -135,7 +146,7 @@ class FlipFusionGame {
         
         // Create card pairs
         const cards = [];
-        const availableCards = [...this.cardTypes];
+        const availableCards = [...this.cardSets[this.config.cardSet]];
         
         for (let i = 0; i < pairsNeeded; i++) {
             const cardType = availableCards[i % availableCards.length];
@@ -168,7 +179,7 @@ class FlipFusionGame {
             <div class="card-inner">
                 <div class="card-back"></div>
                 <div class="card-front">
-                    <img src="assets/${cardType}.svg" alt="${cardType}">
+                    <img src="assets/cards_set_${this.config.cardSet}/${cardType}.svg" alt="${cardType}">
                 </div>
             </div>
         `;
