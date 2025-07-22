@@ -235,27 +235,41 @@ body {
     padding: 15px 25px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .game-info {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 40px;
 }
 
 .info-item {
-    font-family: 'Font1', 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    font-family: 'Font2', 'Arial', sans-serif;
     color: #8b4513;
     font-weight: bold;
     font-size: 16px;
 }
 
 .label {
-    margin-right: 8px;
+    margin-right: 6px;
+}
+
+#timer,
+#moves {
+    font-family: 'Arial', sans-serif;
+    color: #8b4513;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .game-actions {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
 }
 
 .action-btn {
@@ -263,10 +277,10 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 14px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     transition: all 0.3s ease;
 }
 
@@ -274,6 +288,7 @@ body {
     background: #a0522d;
     transform: translateY(-2px);
 }
+
 
 .game-board-container {
     flex: 1;
