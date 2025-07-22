@@ -461,12 +461,20 @@ body {
     border-radius: 10px;
 }
 
+#final-time,
+#final-moves{
+    font-family: 'Arial', sans-serif;
+    color: #8b4513;
+    font-weight: bold;
+    font-size: 18px
+}
+
 .stat {
     text-align: center;
 }
 
 .stat-label {
-    font-family: 'Font1', 'Arial', sans-serif;
+    font-family: 'Font2', 'Arial', sans-serif;
     display: block;
     color: #8b4513;
     font-weight: bold;
