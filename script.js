@@ -1,9 +1,9 @@
 class FlipFusionGame {
     constructor() {
         this.config = {
-            boardSize: 'small',
-            matchablePairs: 2,
-            cardSet: 'strawberry'
+            boardSize: 'large',
+            matchablePairs: 1,
+            cardSet: 'ace-spades'
         };
         
         this.gameState = {

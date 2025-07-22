@@ -13,6 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
+    padding: 20px;
 }
 
 /* Screen management */
@@ -40,13 +41,14 @@ body {
 
 .config-card {
     background: #f5f5dc;
-    border: 4px solid #8b4513;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
+    border: 6px solid #8b4513;
+    border-radius: 25px;
+    padding: 50px 40px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    max-width: 600px;
     width: 100%;
     text-align: center;
+    position: relative;
 }
 
 .config-section {
@@ -55,10 +57,11 @@ body {
 
 .config-section h2 {
     color: #8b4513;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .button-group {
@@ -70,15 +73,17 @@ body {
 
 .config-btn {
     background: #f5f5dc;
-    border: 2px solid #8b4513;
+    border: 3px solid #8b4513;
     color: #8b4513;
-    padding: 12px 24px;
-    border-radius: 10px;
+    padding: 15px 30px;
+    border-radius: 12px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 80px;
+    min-width: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .config-btn:hover {
@@ -94,24 +99,25 @@ body {
 .card-preview-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
-    max-width: 360px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .card-preview {
-    width: 50px;
-    height: 70px;
+    width: 65px;
+    height: 90px;
     background: #fff;
-    border: 2px solid #8b4513;
-    border-radius: 8px;
+    border: 3px solid #8b4513;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 5px;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-preview:hover {
@@ -122,6 +128,8 @@ body {
 .card-preview.active {
     background: #8b4513;
     border-color: #8b4513;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-preview img {
@@ -134,14 +142,16 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: 15px 40px;
-    border-radius: 15px;
-    font-size: 18px;
+    padding: 20px 50px;
+    border-radius: 20px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 20px;
-    letter-spacing: 1px;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .start-button:hover {
@@ -402,19 +412,46 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
     .config-card {
-        padding: 30px 20px;
-        margin: 20px;
+        padding: 30px 25px;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 20px;
+        border-width: 4px;
+    }
+    
+    .config-section h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .config-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        min-width: 80px;
     }
     
     .card-preview-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
+        gap: 10px;
+        max-width: 300px;
     }
     
     .card-preview {
-        width: 60px;
-        height: 80px;
+        width: 50px;
+        height: 70px;
+        padding: 5px;
+        border-width: 2px;
+    }
+    
+    .start-button {
+        padding: 15px 35px;
+        font-size: 18px;
+        margin-top: 25px;
     }
     
     .game-card {
