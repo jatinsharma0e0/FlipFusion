@@ -449,6 +449,15 @@ body {
     font-size: 16px;
 }
 
+#result-message {
+    color: #8b4513;
+    font-family: 'Font1', 'Arial', sans-serif;
+    font-size: 16px;
+    margin-bottom: 25px;
+    text-shadow: none;
+    font-weight: bold;
+}
+
 .win-stats {
     display: flex;
     justify-content: space-around;
@@ -459,7 +468,8 @@ body {
 }
 
 #final-time,
-#final-moves{
+#final-moves,
+#final-mode{
     font-family: 'Arial', sans-serif;
     color: #8b4513;
     font-weight: bold;
