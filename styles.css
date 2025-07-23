@@ -31,7 +31,6 @@
 body {
     font-family: 'Font1', 'Arial', sans-serif;
     background: linear-gradient(135deg, #2e8b57, #228b22);
-    min-height: 100vh;
     min-height: 100dvh; /* Use dynamic viewport height for mobile */
     display: flex;
     align-items: center;
