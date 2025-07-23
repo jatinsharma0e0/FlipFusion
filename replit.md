@@ -99,7 +99,17 @@ Performance requirement: Game must be responsive for all devices without any lag
 - `assets/`: SVG card images directory
 
 ### Extensibility
-- **New Card Sets**: Add SVG files and update cardTypes array
+- **New Card Sets**: Add image files and update cardSetConfigs object with proper extensions
 - **Board Sizes**: Modify boardSizes configuration object
 - **Game Modes**: Extend config object for additional options
 - **Themes**: CSS custom properties for easy theme switching
+
+### Recent Changes
+
+**July 23, 2025:**
+- **Project Migration**: Successfully migrated from Replit Agent to standard Replit environment
+- **Board Size Updates**: Changed to Small (4×4, 16 cards), Medium (4×8, 32 cards), Large (8×8, 64 cards)
+- **Dynamic Card Loading**: Implemented dynamic card loading system with proper file extension detection
+- **Enhanced Card Sets**: Updated flags, classic, and monsters sets with 100, 100, and 25 cards respectively
+- **Card Back Display**: Fixed card back images to show themed SVGs when cards are face-down
+- **Square Card Design**: Updated cards to square aspect ratio for cleaner appearance

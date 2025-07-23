@@ -17,13 +17,23 @@ class FlipFusionGame {
             isPaused: false
         };
         
-        this.cardSets = {
-            animals: ['animal1', 'animal2'],
-            classic: ['classic1', 'classic2'],
-            flags: ['flag1', 'flag2'],
-            maths: ['math1', 'math2'],
-            monsters: ['monster1', 'monster2']
+        // Card set configurations with extensions and counts
+        this.cardSetConfigs = {
+            animals: { extension: 'svg', count: 2, prefix: 'animal' },
+            classic: { extension: 'svg', count: 100, prefix: 'classic' }, // Updated with many cards
+            flags: { extension: 'svg', count: 100, prefix: 'flag' }, // Updated with many cards  
+            maths: { extension: 'svg', count: 2, prefix: 'math' },
+            monsters: { extension: 'png', count: 25, prefix: 'monster' } // Updated with many cards
         };
+        
+        // Generate card arrays dynamically
+        this.cardSets = {};
+        for (const [setName, config] of Object.entries(this.cardSetConfigs)) {
+            this.cardSets[setName] = [];
+            for (let i = 1; i <= config.count; i++) {
+                this.cardSets[setName].push(`${config.prefix}${i}`);
+            }
+        }
         this.boardSizes = {
             small: { rows: 4, cols: 4, total: 16 },
             medium: { rows: 4, cols: 8, total: 32 },
@@ -175,13 +185,17 @@ class FlipFusionGame {
         card.dataset.index = index;
         card.dataset.type = cardType;
         
+        // Get the correct file extension for this card set
+        const cardSetConfig = this.cardSetConfigs[this.config.cardSet];
+        const extension = cardSetConfig.extension;
+        
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-back">
                     <img src="assets/cards_set_${this.config.cardSet}/${this.config.cardSet}_cards_back.svg" alt="Card Back">
                 </div>
                 <div class="card-front">
-                    <img src="assets/cards_set_${this.config.cardSet}/${cardType}.svg" alt="${cardType}">
+                    <img src="assets/cards_set_${this.config.cardSet}/${cardType}.${extension}" alt="${cardType}">
                 </div>
             </div>
         `;
