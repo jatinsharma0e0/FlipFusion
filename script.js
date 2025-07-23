@@ -177,7 +177,9 @@ class FlipFusionGame {
         
         card.innerHTML = `
             <div class="card-inner">
-                <div class="card-back"></div>
+                <div class="card-back">
+                    <img src="assets/cards_set_${this.config.cardSet}/${this.config.cardSet}_cards_back.svg" alt="Card Back">
+                </div>
                 <div class="card-front">
                     <img src="assets/cards_set_${this.config.cardSet}/${cardType}.svg" alt="${cardType}">
                 </div>
