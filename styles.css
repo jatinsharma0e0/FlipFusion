@@ -243,46 +243,46 @@ body {
 
 .config-card {
     background: #f5f5dc;
-    border: 0.6vw solid #8b4513;
-    border-radius: 2.5vw;
-    padding: 3vh 4vw;
-    box-shadow: 0 1.2vw 3.6vw rgba(0, 0, 0, 0.4);
-    width: 90vw;
-    max-width: 60vw;
-    max-height: 90vh;
+    border: 0.5vw solid #8b4513;
+    border-radius: 2vw;
+    padding: 2.5vh 3vw;
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.4);
+    width: 95vw;
+    max-width: 70vw;
+    max-height: 95vh;
     text-align: center;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .game-title {
     font-family: 'Font2', 'Arial', sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(1.8rem, 4.5vw, 3.5rem);
     color: #8b4513;
-    margin-bottom: 2vh;
+    margin-bottom: 1.5vh;
     text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
-    letter-spacing: 0.2vw;
+    letter-spacing: 0.15vw;
 }
 
 .config-section {
-    margin-bottom: 1.8vh;
+    margin-bottom: 1.2vh;
 }
 
 .config-section h2 {
     font-family: 'Font2', 'Arial', sans-serif;
     color: #8b4513;
-    font-size: clamp(1rem, 2.4vw, 1.8rem);
+    font-size: clamp(0.9rem, 2.2vw, 1.5rem);
     font-weight: bold;
-    margin-bottom: 1vh;
-    letter-spacing: 0.1vw;
+    margin-bottom: 0.8vh;
+    letter-spacing: 0.08vw;
     text-transform: uppercase;
 }
 
 .button-group {
     display: flex;
-    gap: 1vw;
+    gap: 0.8vw;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -290,17 +290,17 @@ body {
 .config-btn {
     font-family: 'Font1', 'Arial', sans-serif;
     background: #f5f5dc;
-    border: 0.3vw solid #8b4513;
+    border: 0.25vw solid #8b4513;
     color: #8b4513;
-    padding: 1.2vh 2.5vw;
-    border-radius: 1.2vw;
+    padding: 1vh 2.2vw;
+    border-radius: 1vw;
     font-weight: bold;
-    font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+    font-size: clamp(0.7rem, 1.4vw, 1rem);
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    min-width: 8vw;
+    min-width: 7vw;
     text-transform: uppercase;
-    letter-spacing: 0.1vw;
+    letter-spacing: 0.08vw;
     will-change: transform;
 }
 
@@ -321,7 +321,7 @@ body {
 .card-preview-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 1.5vw;
+    gap: 1vw;
     justify-content: center;
     width: 100%;
     margin: 0 auto;
@@ -331,15 +331,15 @@ body {
     width: 100%;
     aspect-ratio: 3/4;
     background: #fff;
-    border: 0.3vw solid #8b4513;
-    border-radius: 1vw;
+    border: 0.25vw solid #8b4513;
+    border-radius: 0.8vw;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 0.8vw;
-    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
+    padding: 0.6vw;
+    box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.2);
 }
 
 .card-preview:hover {
@@ -377,16 +377,16 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: 2vh 5vw;
-    border-radius: 2vw;
-    font-size: clamp(1.2rem, 2.6vw, 2rem);
+    padding: 1.8vh 4.5vw;
+    border-radius: 1.8vw;
+    font-size: clamp(1rem, 2.2vw, 1.6rem);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 2vh;
-    letter-spacing: 0.2vw;
+    margin-top: 1.5vh;
+    letter-spacing: 0.15vw;
     text-transform: uppercase;
-    box-shadow: 0 0.6vw 1.5vw rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5vw 1.2vw rgba(0, 0, 0, 0.3);
 }
 
 .start-button:hover {
