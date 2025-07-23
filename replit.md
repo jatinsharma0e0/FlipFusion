@@ -28,9 +28,10 @@ Performance requirement: Game must be responsive for all devices without any lag
 ## Key Components
 
 ### 1. Game Configuration System
-- **Board Size Options**: Small (3x4), Medium (4x6), Large (6x8) grids
+- **Board Size Options**: Small (4×4), Medium (4×8), Large (8×8) grids
 - **Matchable Pairs**: 1 or 2 pairs per card type for difficulty variation
-- **Card Set Selection**: Multiple themed card sets (playing cards, fruits, animals, characters)
+- **Game Modes**: Rush (time-limited), Moves (move-limited), Casual (unlimited)
+- **Card Set Selection**: Multiple themed card sets with dynamic loading (flags, classic, monsters, animals, maths)
 - **Persistent Settings**: Configuration saved to localStorage for user convenience
 
 ### 2. Game Engine
@@ -113,3 +114,6 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Enhanced Card Sets**: Updated flags, classic, and monsters sets with 100, 100, and 25 cards respectively
 - **Card Back Display**: Fixed card back images to show themed SVGs when cards are face-down
 - **Square Card Design**: Updated cards to square aspect ratio for cleaner appearance
+- **Mode Selection Feature**: Implemented Rush, Moves, and Casual game modes with different win/loss conditions
+- **Mode-Specific UI**: Added dynamic timer and moves labels based on selected mode
+- **Comprehensive Game Logic**: Rush mode with countdown timer, Moves mode with move limits, Casual mode unlimited

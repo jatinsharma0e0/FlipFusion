@@ -30,6 +30,15 @@
                 </div>
 
                 <div class="config-section">
+                    <h2>MODE</h2>
+                    <div class="button-group">
+                        <button class="config-btn config-btn-mode active" data-mode="casual">CASUAL</button>
+                        <button class="config-btn config-btn-mode" data-mode="rush">RUSH</button>
+                        <button class="config-btn config-btn-mode" data-mode="moves">MOVES</button>
+                    </div>
+                </div>
+
+                <div class="config-section">
                     <h2>CARD SET</h2>
                     <div class="card-preview-grid">
                         <div class="card-preview active" data-card="animals">
@@ -63,11 +72,11 @@
         <div class="game-header">
             <div class="game-info">
                 <div class="info-item">
-                    <span class="label">Time</span>
+                    <span class="label" id="timer-label">Time</span>
                     <span id="timer">00:00</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Moves</span>
+                    <span class="label" id="moves-label">Moves</span>
                     <span id="moves">0</span>
                 </div>
             </div>
@@ -86,8 +95,8 @@
     <!-- Win Screen Modal -->
     <div id="win-modal" class="modal">
         <div class="modal-content">
-            <h2>Congratulations!</h2>
-            <p>You completed the game!</p>
+            <h2 id="result-title">Congratulations!</h2>
+            <p id="result-message">You completed the game!</p>
             <div class="win-stats">
                 <div class="stat">
                     <span class="stat-label">Time</span>
@@ -96,6 +105,10 @@
                 <div class="stat">
                     <span class="stat-label">Moves</span>
                     <span id="final-moves">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Mode</span>
+                    <span id="final-mode">Casual</span>
                 </div>
             </div>
             <div class="modal-actions">

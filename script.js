@@ -3,7 +3,8 @@ class FlipFusionGame {
         this.config = {
             boardSize: 'large',
             matchablePairs: 1,
-            cardSet: 'animals'
+            cardSet: 'animals',
+            mode: 'casual'
         };
         
         this.gameState = {
@@ -14,7 +15,11 @@ class FlipFusionGame {
             timer: 0,
             gameStarted: false,
             gameInterval: null,
-            isPaused: false
+            isPaused: false,
+            isGameOver: false,
+            gameWon: false,
+            movesRemaining: 0,
+            timeRemaining: 0
         };
         
         // Card set configurations with extensions and counts
@@ -38,6 +43,21 @@ class FlipFusionGame {
             small: { rows: 4, cols: 4, total: 16 },
             medium: { rows: 4, cols: 8, total: 32 },
             large: { rows: 8, cols: 8, total: 64 }
+        };
+        
+        // Mode configurations with time and move limits per board size
+        this.modeConfigs = {
+            rush: {
+                small: { timeLimit: 180 }, // 3 minutes for small board
+                medium: { timeLimit: 300 }, // 5 minutes for medium board
+                large: { timeLimit: 480 } // 8 minutes for large board
+            },
+            moves: {
+                small: { moveLimit: 25 }, // 25 moves for 16 cards (small)
+                medium: { moveLimit: 50 }, // 50 moves for 32 cards (medium)
+                large: { moveLimit: 100 } // 100 moves for 64 cards (large)
+            },
+            casual: {} // No limits
         };
         
         this.init();
@@ -76,6 +96,15 @@ class FlipFusionGame {
                 document.querySelectorAll('[data-pairs]').forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
                 this.config.matchablePairs = parseInt(e.target.dataset.pairs);
+                this.saveConfig();
+            });
+        });
+        
+        document.querySelectorAll('[data-mode]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.config.mode = e.target.dataset.mode;
                 this.saveConfig();
             });
         });
@@ -122,6 +151,10 @@ class FlipFusionGame {
             btn.classList.toggle('active', parseInt(btn.dataset.pairs) === this.config.matchablePairs);
         });
         
+        document.querySelectorAll('[data-mode]').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.mode === this.config.mode);
+        });
+        
         document.querySelectorAll('[data-card]').forEach(preview => {
             preview.classList.toggle('active', preview.dataset.card === this.config.cardSet);
         });
@@ -143,10 +176,41 @@ class FlipFusionGame {
             timer: 0,
             gameStarted: true,
             gameInterval: null,
-            isPaused: false
+            isPaused: false,
+            isGameOver: false,
+            gameWon: false,
+            movesRemaining: 0,
+            timeRemaining: 0
         };
         
+        // Initialize based on game mode
+        if (this.config.mode === 'rush') {
+            const modeConfig = this.modeConfigs.rush[this.config.boardSize];
+            this.gameState.timeRemaining = modeConfig.timeLimit;
+            this.gameState.timer = modeConfig.timeLimit;
+        } else if (this.config.mode === 'moves') {
+            const modeConfig = this.modeConfigs.moves[this.config.boardSize];
+            this.gameState.movesRemaining = modeConfig.moveLimit;
+        }
+        
         this.updateGameDisplay();
+        this.updateDisplayLabels();
+    }
+    
+    updateDisplayLabels() {
+        const timerLabel = document.getElementById('timer-label');
+        const movesLabel = document.getElementById('moves-label');
+        
+        if (this.config.mode === 'rush') {
+            timerLabel.textContent = 'Time Left';
+            movesLabel.textContent = 'Moves';
+        } else if (this.config.mode === 'moves') {
+            timerLabel.textContent = 'Time';
+            movesLabel.textContent = 'Moves Left';
+        } else {
+            timerLabel.textContent = 'Time';
+            movesLabel.textContent = 'Moves';
+        }
     }
     
     createGameBoard() {
@@ -207,6 +271,7 @@ class FlipFusionGame {
     
     flipCard(cardElement) {
         if (this.gameState.isPaused || 
+            this.gameState.isGameOver ||
             cardElement.classList.contains('flipped') || 
             cardElement.classList.contains('matched') ||
             this.gameState.flippedCards.length >= 2) {
@@ -220,7 +285,19 @@ class FlipFusionGame {
             
             if (this.gameState.flippedCards.length === 2) {
                 this.gameState.moves++;
+                
+                // Update moves remaining for moves mode
+                if (this.config.mode === 'moves') {
+                    this.gameState.movesRemaining--;
+                }
+                
                 this.updateGameDisplay();
+                
+                // Check if out of moves in moves mode
+                if (this.config.mode === 'moves' && this.gameState.movesRemaining <= 0) {
+                    setTimeout(() => this.endGame(false), 800);
+                    return;
+                }
                 
                 setTimeout(() => this.checkMatch(), 800);
             }
@@ -241,7 +318,7 @@ class FlipFusionGame {
                 
                 if (this.gameState.matchedPairs === this.gameState.cards.length / 2) {
                     // Small delay before showing win modal for better UX
-                    setTimeout(() => this.endGame(), 300);
+                    setTimeout(() => this.endGame(true), 300);
                 }
             });
         } else {
@@ -257,8 +334,21 @@ class FlipFusionGame {
     
     startTimer() {
         this.gameState.gameInterval = setInterval(() => {
-            if (!this.gameState.isPaused) {
-                this.gameState.timer++;
+            if (!this.gameState.isPaused && !this.gameState.isGameOver) {
+                if (this.config.mode === 'rush') {
+                    // Count down for rush mode
+                    this.gameState.timeRemaining--;
+                    this.gameState.timer = this.gameState.timeRemaining;
+                    
+                    if (this.gameState.timeRemaining <= 0) {
+                        this.endGame(false);
+                        return;
+                    }
+                } else {
+                    // Count up for casual and moves mode
+                    this.gameState.timer++;
+                }
+                
                 this.updateGameDisplay();
             }
         }, 1000);
@@ -282,14 +372,28 @@ class FlipFusionGame {
         gameBoard.style.pointerEvents = this.gameState.isPaused ? 'none' : 'auto';
     }
     
-    endGame() {
+    endGame(won = true) {
+        this.gameState.isGameOver = true;
+        this.gameState.gameWon = won;
         this.stopTimer();
-        this.showWinModal();
+        this.showWinModal(won);
     }
     
     updateGameDisplay() {
-        document.getElementById('timer').textContent = this.formatTime(this.gameState.timer);
-        document.getElementById('moves').textContent = this.gameState.moves;
+        // Update timer display based on mode
+        let timerValue = this.gameState.timer;
+        if (this.config.mode === 'rush') {
+            timerValue = Math.max(0, this.gameState.timeRemaining);
+        }
+        
+        document.getElementById('timer').textContent = this.formatTime(timerValue);
+        
+        // Update moves display based on mode
+        let movesValue = this.gameState.moves;
+        if (this.config.mode === 'moves') {
+            movesValue = Math.max(0, this.gameState.movesRemaining);
+        }
+        document.getElementById('moves').textContent = movesValue;
     }
     
     formatTime(seconds) {
@@ -308,9 +412,36 @@ class FlipFusionGame {
         document.getElementById('home-screen').classList.add('active');
     }
     
-    showWinModal() {
-        document.getElementById('final-time').textContent = this.formatTime(this.gameState.timer);
-        document.getElementById('final-moves').textContent = this.gameState.moves;
+    showWinModal(won = true) {
+        const resultTitle = document.getElementById('result-title');
+        const resultMessage = document.getElementById('result-message');
+        const finalTime = document.getElementById('final-time');
+        const finalMoves = document.getElementById('final-moves');
+        const finalMode = document.getElementById('final-mode');
+        
+        // Set appropriate time display (elapsed time, not remaining)
+        let timeToShow = this.gameState.timer;
+        if (this.config.mode === 'rush') {
+            const originalTime = this.modeConfigs.rush[this.config.boardSize].timeLimit;
+            timeToShow = originalTime - Math.max(0, this.gameState.timeRemaining);
+        }
+        
+        finalTime.textContent = this.formatTime(timeToShow);
+        finalMoves.textContent = this.gameState.moves;
+        finalMode.textContent = this.config.mode.charAt(0).toUpperCase() + this.config.mode.slice(1);
+        
+        if (won) {
+            resultTitle.textContent = 'Congratulations!';
+            resultMessage.textContent = 'You completed the game!';
+        } else {
+            resultTitle.textContent = 'Game Over!';
+            if (this.config.mode === 'rush') {
+                resultMessage.textContent = "Time's up!";
+            } else if (this.config.mode === 'moves') {
+                resultMessage.textContent = "No more moves!";
+            }
+        }
+        
         document.getElementById('win-modal').classList.add('active');
     }
     
