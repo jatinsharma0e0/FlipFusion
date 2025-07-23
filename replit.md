@@ -143,3 +143,5 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Card Set Reordering**: Updated card set order to Monsters (first), Classic (second), Flags (third) with Monsters as default selection
 - **Default Configuration Updates**: Set board size to Medium, matchable pairs to 1, difficulty to Casual, and card set to Monsters
 - **Large Board Optimization**: Reduced large board from 8×8 (64 cards) to 5×8 (40 cards) for better gameplay balance with adjusted time/move limits
+- **Timer Logic Fixes**: Completely rebuilt timer system to properly handle all three game modes with correct countdown/count-up behavior
+- **Game State Reset**: Added proper game state reset functionality when returning to home screen or starting new games

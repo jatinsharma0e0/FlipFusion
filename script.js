@@ -297,6 +297,10 @@ class FlipFusionGame {
     }
     
     startGame() {
+        // Always reset game state before starting a new game
+        this.stopTimer();
+        this.resetGameState();
+        
         this.showGameScreen();
         this.initializeGame();
         this.createGameBoard();
@@ -595,8 +599,32 @@ class FlipFusionGame {
     
     goHome() {
         this.stopTimer();
+        this.resetGameState();
         this.showHomeScreenFromGame();
         this.hideWinModal();
+    }
+    
+    resetGameState() {
+        // Clear timer interval if it exists
+        if (this.gameState && this.gameState.gameInterval) {
+            clearInterval(this.gameState.gameInterval);
+        }
+        
+        // Reset all game state
+        this.gameState = {
+            cards: [],
+            flippedCards: [],
+            matchedPairs: 0,
+            moves: 0,
+            timer: 0,
+            gameStarted: false,
+            gameInterval: null,
+            isPaused: false,
+            isGameOver: false,
+            gameWon: false,
+            movesRemaining: 0,
+            timeRemaining: 0
+        };
     }
     
     shuffleArray(array) {
