@@ -335,9 +335,8 @@ class FlipFusionGame {
         this.updateGameDisplay();
         this.updateDisplayLabels();
         
-        // Initialize display with zero values
-        document.getElementById('timer').textContent = '00:00';
-        document.getElementById('moves').textContent = '0';
+        // Initialize display based on game mode
+        this.updateInitialDisplay();
     }
     
     updateDisplayLabels() {
@@ -353,6 +352,23 @@ class FlipFusionGame {
         } else {
             timerLabel.textContent = 'Time';
             movesLabel.textContent = 'Moves';
+        }
+    }
+    
+    updateInitialDisplay() {
+        // Set initial display values based on game mode
+        if (this.config.mode === 'rush') {
+            // Show time limit for rush mode
+            document.getElementById('timer').textContent = this.formatTime(this.gameState.timeRemaining);
+            document.getElementById('moves').textContent = '0';
+        } else if (this.config.mode === 'moves') {
+            // Show move limit for moves mode
+            document.getElementById('timer').textContent = '00:00';
+            document.getElementById('moves').textContent = this.gameState.movesRemaining.toString();
+        } else {
+            // Casual mode starts at zero
+            document.getElementById('timer').textContent = '00:00';
+            document.getElementById('moves').textContent = '0';
         }
     }
     

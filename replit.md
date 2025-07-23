@@ -147,3 +147,4 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Game State Reset**: Added proper game state reset functionality when returning to home screen or starting new games
 - **Timer Start Behavior**: Timer now only starts when player flips the first card, not immediately on game load
 - **Complete Reset Functionality**: Home button and reset button fully clear all game states and wait for first card flip to restart timer
+- **Initial Display Logic**: Time Mode shows time limit, Moves Mode shows move limit, Casual Mode shows zeros before first card flip
