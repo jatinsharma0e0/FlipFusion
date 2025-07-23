@@ -25,9 +25,9 @@ class FlipFusionGame {
             monsters: ['monster1', 'monster2']
         };
         this.boardSizes = {
-            small: { rows: 3, cols: 4, total: 12 },
-            medium: { rows: 4, cols: 6, total: 24 },
-            large: { rows: 6, cols: 8, total: 48 }
+            small: { rows: 4, cols: 4, total: 16 },
+            medium: { rows: 4, cols: 8, total: 32 },
+            large: { rows: 8, cols: 8, total: 64 }
         };
         
         this.init();

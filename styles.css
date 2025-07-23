@@ -308,25 +308,29 @@ body {
 .game-board.small {
     grid-template-columns: repeat(4, 1fr);
     max-width: 400px;
+    justify-content: center;
 }
 
 .game-board.medium {
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 600px;
+    grid-template-columns: repeat(8, 1fr);
+    max-width: 800px;
+    justify-content: center;
 }
 
 .game-board.large {
     grid-template-columns: repeat(8, 1fr);
-    max-width: 800px;
+    max-width: 900px;
+    justify-content: center;
 }
 
-/* Card styles */
+/* Card styles - square proportions for clean layout */
 .game-card {
     width: 80px;
-    height: 110px;
+    height: 80px;
     position: relative;
     cursor: pointer;
     perspective: 1000px;
+    aspect-ratio: 1;
 }
 
 .card-inner {
@@ -550,19 +554,22 @@ body {
     
     .game-card {
         width: 60px;
-        height: 85px;
+        height: 60px;
     }
     
     .game-board.small {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 320px;
     }
     
     .game-board.medium {
         grid-template-columns: repeat(4, 1fr);
+        max-width: 320px;
     }
     
     .game-board.large {
         grid-template-columns: repeat(4, 1fr);
+        max-width: 320px;
     }
     
     .game-header {
@@ -632,7 +639,7 @@ body {
     
     .game-card {
         width: 50px;
-        height: 70px;
+        height: 50px;
     }
     
     .game-board {
@@ -641,15 +648,18 @@ body {
     }
     
     .game-board.small {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 240px;
     }
     
     .game-board.medium {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 240px;
     }
     
     .game-board.large {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 240px;
     }
 }
 
