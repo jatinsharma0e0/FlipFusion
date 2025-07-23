@@ -536,8 +536,8 @@ body {
 
 
 .card-back {
-    background: #fff;
-    border: 0.2vw solid #ddd;
+    background: transparent;
+    border: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -556,11 +556,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 0.8vw;
 }
 
 .card-front {
-    background: #fff;
-    border: 0.2vw solid #ddd;
+    background: transparent;
+    border: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -579,6 +580,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 0.8vw;
 }
 
 .card-front img {
@@ -1021,7 +1023,8 @@ body {
     
     .card-back,
     .card-front {
-        border: 0.4vw solid #ddd;
+        background: transparent;
+        border: none;
         border-radius: 1.5vw;
         padding: 0;
     }
@@ -1029,6 +1032,7 @@ body {
     .card-back img,
     .card-front img {
         object-fit: contain;
+        border-radius: 1.5vw;
     }
 }
 
@@ -1139,7 +1143,8 @@ body {
     
     .card-back,
     .card-front {
-        border: 0.5vw solid #ddd;
+        background: transparent;
+        border: none;
         border-radius: 1.6vw;
         padding: 0;
     }
@@ -1147,6 +1152,7 @@ body {
     .card-back img,
     .card-front img {
         object-fit: contain;
+        border-radius: 1.6vw;
     }
 }
 
