@@ -62,16 +62,20 @@ body {
 
 /* Loading Screen */
 #loading-screen {
-    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
-    color: #F5F5DC;
+    background: linear-gradient(135deg, #2e8b57, #228b22);
+    color: #8b4513;
     padding: 0;
 }
 
 .loading-container {
     text-align: center;
-    max-width: 400px;
+    max-width: 450px;
     width: 90%;
     padding: 40px;
+    background: #f5f5dc;
+    border: 6px solid #8b4513;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .loading-logo {
@@ -82,13 +86,16 @@ body {
     font-size: 3em;
     margin: 0;
     font-weight: bold;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    color: #8b4513;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
     letter-spacing: 2px;
+    font-style: italic;
 }
 
 .loading-subtitle {
     font-size: 1.1em;
-    opacity: 0.9;
+    color: #8b4513;
+    opacity: 0.8;
     margin-top: 8px;
     font-weight: 300;
 }
@@ -99,33 +106,35 @@ body {
 
 .progress-bar {
     width: 100%;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    height: 12px;
+    background: rgba(139, 69, 19, 0.2);
+    border-radius: 6px;
     overflow: hidden;
     margin-bottom: 15px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 4px rgba(139, 69, 19, 0.3);
+    border: 2px solid #8b4513;
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #F5F5DC 0%, #FFE4B5 50%, #F5F5DC 100%);
+    background: linear-gradient(90deg, #8b4513 0%, #a0522d 50%, #8b4513 100%);
     width: 0%;
     transition: width 0.3s ease;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.4);
 }
 
 .loading-text {
-    font-size: 1em;
+    font-size: 1.1em;
     margin-bottom: 8px;
-    opacity: 0.9;
+    color: #8b4513;
+    font-weight: 500;
 }
 
 .loading-percentage {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: bold;
-    color: #FFE4B5;
+    color: #8b4513;
 }
 
 .loading-spinner {
@@ -135,8 +144,8 @@ body {
 .spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid rgba(245, 245, 220, 0.2);
-    border-top: 4px solid #F5F5DC;
+    border: 4px solid rgba(139, 69, 19, 0.2);
+    border-top: 4px solid #8b4513;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto;
@@ -155,6 +164,22 @@ body {
     
     .loading-container {
         padding: 30px 20px;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-logo .game-title {
+        font-size: 2em;
+    }
+    
+    .loading-container {
+        padding: 25px 15px;
+        max-width: 300px;
+    }
+    
+    .progress-bar {
+        height: 10px;
     }
 }
 
