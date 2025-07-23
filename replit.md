@@ -127,9 +127,10 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Asset Loading System**: Implemented comprehensive loading screen with Cache Storage API for offline capability
 - **Performance Optimization**: All assets cached on first load, subsequent loads served from cache for instant performance
 - **Progressive Loading**: Batched asset loading with progress feedback and retry logic for failed downloads
-- **Full-Screen Immersive Experience**: Disabled all browser interactions including scrolling, context menus, zooming, and text selection
-- **Advanced Event Prevention**: Comprehensive keyboard, mouse, and touch event handling to prevent browser interference
-- **Perfect Viewport Fitting**: Game scales to 100% viewport coverage with no scrollbars on any device or screen size
-- **Ultra-Responsive Design**: Dynamic viewport units and CSS custom properties for seamless scaling across all devices
-- **Mobile-First Optimization**: Comprehensive breakpoints from 320px to 1200px+ with orientation-aware layouts
-- **Touch-Optimized Controls**: Disabled pinch-zoom, double-tap zoom, and gesture conflicts for smooth mobile gameplay
+- **Full-Screen Immersive Experience**: Disabled all browser interactions including scrolling, context menus, zooming, and text selection (function keys preserved for user accessibility)
+- **Advanced Event Prevention**: Comprehensive keyboard, mouse, and touch event handling to prevent browser interference while maintaining essential functionality
+- **Perfect Viewport Fitting**: Game scales to 100% viewport coverage with no scrollbars on any device or screen size using fixed positioning and dynamic viewport units
+- **Ultra-Responsive Design**: CSS custom properties with dynamic viewport units (--vh, --vw) for seamless scaling across all devices and orientations
+- **Mobile-First Optimization**: Comprehensive breakpoints from 320px to 1200px+ with orientation-aware layouts and viewport-relative sizing
+- **Touch-Optimized Controls**: Disabled pinch-zoom, double-tap zoom, and gesture conflicts for smooth mobile gameplay with passive event prevention
+- **Dynamic Viewport Management**: JavaScript-powered viewport resize handling for perfect fit across device rotations and browser UI changes

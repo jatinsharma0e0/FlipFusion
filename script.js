@@ -642,10 +642,7 @@ function disableBrowserInteractions() {
             e.preventDefault();
         }
         
-        // Prevent F11 (fullscreen), F5 (refresh), etc.
-        if (e.key.startsWith('F') && e.key.length > 1) {
-            e.preventDefault();
-        }
+        // Allow function keys - removed F key blocking
         
         if (preventKeys.includes(e.key)) {
             e.preventDefault();
