@@ -632,12 +632,10 @@ function disableBrowserInteractions() {
             'PageUp', 'PageDown', 'Home', 'End', 'Space'
         ];
         
-        // Prevent Ctrl/Cmd shortcuts that affect view
+        // Only prevent specific browser shortcuts that interfere with game, allow Windows shortcuts
         if ((e.ctrlKey || e.metaKey) && (
             e.key === '+' || e.key === '-' || e.key === '=' || 
-            e.key === '0' || e.key === 'r' || e.key === 'R' ||
-            e.key === 'f' || e.key === 'F' || e.key === 'u' ||
-            e.key === 'U' || e.key === 's' || e.key === 'S'
+            e.key === '0' // Only prevent zoom-related shortcuts, allow other Ctrl shortcuts
         )) {
             e.preventDefault();
         }
