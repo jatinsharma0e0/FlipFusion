@@ -145,3 +145,5 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Large Board Optimization**: Reduced large board from 8×8 (64 cards) to 5×8 (40 cards) for better gameplay balance with adjusted time/move limits
 - **Timer Logic Fixes**: Completely rebuilt timer system to properly handle all three game modes with correct countdown/count-up behavior
 - **Game State Reset**: Added proper game state reset functionality when returning to home screen or starting new games
+- **Timer Start Behavior**: Timer now only starts when player flips the first card, not immediately on game load
+- **Complete Reset Functionality**: Home button and reset button fully clear all game states and wait for first card flip to restart timer

@@ -304,7 +304,7 @@ class FlipFusionGame {
         this.showGameScreen();
         this.initializeGame();
         this.createGameBoard();
-        this.startTimer();
+        // Don't start timer here - wait for first card flip
     }
     
     initializeGame() {
@@ -314,7 +314,7 @@ class FlipFusionGame {
             matchedPairs: 0,
             moves: 0,
             timer: 0, // Always tracks elapsed time (seconds since start)
-            gameStarted: true,
+            gameStarted: false, // Game starts when first card is flipped
             gameInterval: null,
             isPaused: false,
             isGameOver: false,
@@ -334,6 +334,10 @@ class FlipFusionGame {
         
         this.updateGameDisplay();
         this.updateDisplayLabels();
+        
+        // Initialize display with zero values
+        document.getElementById('timer').textContent = '00:00';
+        document.getElementById('moves').textContent = '0';
     }
     
     updateDisplayLabels() {
@@ -417,6 +421,12 @@ class FlipFusionGame {
             return;
         }
         
+        // Start timer on first card flip
+        if (!this.gameState.gameStarted) {
+            this.gameState.gameStarted = true;
+            this.startTimer();
+        }
+        
         // Use requestAnimationFrame for smoother animations
         requestAnimationFrame(() => {
             cardElement.classList.add('flipped');
@@ -472,6 +482,11 @@ class FlipFusionGame {
     }
     
     startTimer() {
+        // Only start timer if game has started and no timer is running
+        if (!this.gameState.gameStarted || this.gameState.gameInterval) {
+            return;
+        }
+        
         this.gameState.gameInterval = setInterval(() => {
             if (!this.gameState.isPaused && !this.gameState.isGameOver) {
                 // Always increment elapsed time
@@ -600,8 +615,25 @@ class FlipFusionGame {
     goHome() {
         this.stopTimer();
         this.resetGameState();
+        this.resetGameBoard();
         this.showHomeScreenFromGame();
         this.hideWinModal();
+    }
+    
+    resetGameBoard() {
+        // Clear the game board completely
+        const gameBoard = document.getElementById('game-board');
+        if (gameBoard) {
+            gameBoard.innerHTML = '';
+            gameBoard.style.opacity = '1';
+            gameBoard.style.pointerEvents = 'auto';
+        }
+        
+        // Reset pause button
+        const pauseBtn = document.getElementById('pause-btn');
+        if (pauseBtn) {
+            pauseBtn.textContent = '⏸';
+        }
     }
     
     resetGameState() {
