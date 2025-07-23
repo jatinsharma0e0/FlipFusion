@@ -617,8 +617,103 @@ class FlipFusionGame {
     }
 }
 
+// Browser interaction disabling functions
+function disableBrowserInteractions() {
+    // Prevent all scrolling behaviors
+    document.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('scroll', (e) => e.preventDefault(), { passive: false });
+    
+    // Prevent keyboard navigation that causes scrolling
+    document.addEventListener('keydown', (e) => {
+        // Allow game-specific keys but prevent browser shortcuts
+        const preventKeys = [
+            'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+            'PageUp', 'PageDown', 'Home', 'End', 'Space'
+        ];
+        
+        // Prevent Ctrl/Cmd shortcuts that affect view
+        if ((e.ctrlKey || e.metaKey) && (
+            e.key === '+' || e.key === '-' || e.key === '=' || 
+            e.key === '0' || e.key === 'r' || e.key === 'R' ||
+            e.key === 'f' || e.key === 'F' || e.key === 'u' ||
+            e.key === 'U' || e.key === 's' || e.key === 'S'
+        )) {
+            e.preventDefault();
+        }
+        
+        // Prevent F11 (fullscreen), F5 (refresh), etc.
+        if (e.key.startsWith('F') && e.key.length > 1) {
+            e.preventDefault();
+        }
+        
+        if (preventKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Prevent right-click context menu
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+    
+    // Prevent text selection and dragging
+    document.addEventListener('selectstart', (e) => e.preventDefault());
+    document.addEventListener('dragstart', (e) => e.preventDefault());
+    
+    // Prevent zoom gestures
+    document.addEventListener('gesturestart', (e) => e.preventDefault());
+    document.addEventListener('gesturechange', (e) => e.preventDefault());
+    document.addEventListener('gestureend', (e) => e.preventDefault());
+    
+    // Prevent double-tap zoom on mobile
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+    
+    // Prevent pinch zoom
+    document.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Additional mobile zoom prevention
+    document.addEventListener('touchmove', (e) => {
+        if (e.scale !== 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
+// Responsive viewport adjustment
+function handleViewportResize() {
+    // Update CSS custom properties for dynamic sizing
+    const vh = window.innerHeight * 0.01;
+    const vw = window.innerWidth * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.style.setProperty('--vw', `${vw}px`);
+    
+    // Ensure body maintains full viewport
+    document.body.style.height = `${window.innerHeight}px`;
+    document.body.style.width = `${window.innerWidth}px`;
+}
+
 // Initialize the asset loading and game when the page loads
 document.addEventListener('DOMContentLoaded', async () => {
+    // Disable all browser interactions immediately
+    disableBrowserInteractions();
+    
+    // Setup viewport handling
+    handleViewportResize();
+    window.addEventListener('resize', handleViewportResize);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(handleViewportResize, 100);
+    });
+    
     // Setup cache interception for future requests
     AssetLoader.setupCacheInterception();
     
