@@ -1,0 +1,57 @@
+I want to implement a loading screen that appears before showing the home screen of my memory game, FusionFlip.
+
+Purpose:
+During this loading screen, all required assets (images, fonts, etc.) are downloaded and cached using the Cache Storage API, and the game ensures that these cached assets are used for rendering even when the player is online.
+
+This guarantees instant load times, consistent performance, and offline capability for FusionFlip.
+
+Requirements:
+🔷 Show a visually appealing loading screen with the FusionFlip theme while assets are being fetched and cached.
+
+🔷 Download and cache all assets required for the game:
+
+Card images from all sets
+
+Card backs
+
+Fonts
+
+Other static UI assets (icons, backgrounds, etc.)
+
+Storage Strategy:
+✅ Use the Cache Storage API — optimized for storing HTTP(S) responses, large assets, and serving them efficiently.
+✅ Store the assets in a versioned cache, e.g., fusionflip-v1-assets, so older versions can be invalidated cleanly.
+✅ Always serve assets from the cache, even if the device is online.
+✅ The network should only be used during:
+
+The initial caching of assets.
+
+Updating the cache if the version changes or if an asset is missing.
+
+Best Practices:
+🔷 Show progress feedback (optional but recommended) — e.g., “Loading FusionFlip… 45%” — as assets are downloaded.
+🔷 Handle download errors gracefully:
+
+Retry a few times for transient errors.
+
+Show an error screen/message if critical assets fail.
+🔷 Keep the loading screen responsive and styled consistently with the FusionFlip theme and brand.
+🔷 Ensure that cached assets are always served from the cache, not the network, during gameplay — for speed and consistency.
+
+Once All Assets Are Cached:
+🔷 Hide the loading screen and show the FusionFlip home screen.
+🔷 During gameplay:
+
+Fetch all assets from Cache Storage, regardless of online/offline state.
+
+Do not fetch assets directly from the network while playing.
+🔷 Game works seamlessly offline thanks to the cached assets.
+
+Win Condition:
+✅ Implement the loading screen UI & logic for FusionFlip.
+✅ Preload all required assets using the Cache Storage API.
+✅ Version and maintain the cache to support updates (fusionflip-v1-assets, fusionflip-v2-assets, etc.).
+✅ Always load assets from cache at runtime (even online).
+✅ Only fetch from the network when initially populating the cache or when explicitly updating it.
+✅ Hide the loading screen only after all assets are cached and ready.
+

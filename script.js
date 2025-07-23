@@ -1,3 +1,145 @@
+class AssetLoader {
+    constructor() {
+        this.cacheVersion = 'flipfusion-v1-assets';
+        this.maxRetries = 3;
+        this.assetList = [];
+        this.loadedAssets = 0;
+        this.totalAssets = 0;
+        
+        this.generateAssetList();
+    }
+    
+    generateAssetList() {
+        // Core assets
+        this.assetList = [
+            '/styles.css',
+            '/script.js',
+            '/assets/fonts/font1.ttf',
+            '/assets/fonts/font2.ttf',
+            '/assets/coming-soon.svg'
+        ];
+        
+        // Card set configurations
+        const cardSets = {
+            animals: { count: 2, extension: 'svg' },
+            classic: { count: 100, extension: 'svg' },
+            flags: { count: 100, extension: 'svg' },
+            maths: { count: 2, extension: 'svg' },
+            monsters: { count: 25, extension: 'png' }
+        };
+        
+        // Add card back images
+        Object.keys(cardSets).forEach(setName => {
+            this.assetList.push(`/assets/cards_set_${setName}/${setName}_cards_back.svg`);
+        });
+        
+        // Add card images (sample a reasonable number for initial loading)
+        Object.entries(cardSets).forEach(([setName, config]) => {
+            const loadCount = Math.min(config.count, setName === 'classic' || setName === 'flags' ? 32 : config.count);
+            for (let i = 1; i <= loadCount; i++) {
+                const prefix = setName === 'animals' ? 'animal' : 
+                             setName === 'maths' ? 'math' :
+                             setName === 'classic' ? 'classic' :
+                             setName === 'flags' ? 'flag' : 'monster';
+                this.assetList.push(`/assets/cards_set_${setName}/${prefix}${i}.${config.extension}`);
+            }
+        });
+        
+        this.totalAssets = this.assetList.length;
+    }
+    
+    async loadAssets() {
+        try {
+            this.updateProgress(0, 'Checking cache...');
+            
+            const cache = await caches.open(this.cacheVersion);
+            const cachedUrls = await cache.keys();
+            const cachedPaths = cachedUrls.map(req => new URL(req.url).pathname);
+            
+            // Filter assets that need to be loaded
+            const assetsToLoad = this.assetList.filter(asset => !cachedPaths.includes(asset));
+            
+            if (assetsToLoad.length === 0) {
+                this.updateProgress(100, 'Assets ready!');
+                return true;
+            }
+            
+            this.updateProgress(10, `Loading ${assetsToLoad.length} assets...`);
+            
+            // Load assets in batches for better performance
+            const batchSize = 5;
+            let loadedCount = cachedPaths.length;
+            
+            for (let i = 0; i < assetsToLoad.length; i += batchSize) {
+                const batch = assetsToLoad.slice(i, i + batchSize);
+                await Promise.all(batch.map(async (asset) => {
+                    await this.loadAndCacheAsset(cache, asset);
+                    loadedCount++;
+                    const progress = Math.round((loadedCount / this.totalAssets) * 100);
+                    this.updateProgress(progress, `Loading assets... ${loadedCount}/${this.totalAssets}`);
+                }));
+            }
+            
+            this.updateProgress(100, 'All assets cached!');
+            return true;
+            
+        } catch (error) {
+            console.error('Asset loading failed:', error);
+            this.updateProgress(0, 'Loading failed. Retrying...');
+            return false;
+        }
+    }
+    
+    async loadAndCacheAsset(cache, assetPath, retries = 0) {
+        try {
+            const response = await fetch(assetPath);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${assetPath}: ${response.status}`);
+            }
+            
+            await cache.put(assetPath, response.clone());
+            return response;
+            
+        } catch (error) {
+            if (retries < this.maxRetries) {
+                console.warn(`Retrying ${assetPath} (attempt ${retries + 1}/${this.maxRetries})`);
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second
+                return this.loadAndCacheAsset(cache, assetPath, retries + 1);
+            } else {
+                console.error(`Failed to load ${assetPath} after ${this.maxRetries} attempts:`, error);
+                throw error;
+            }
+        }
+    }
+    
+    updateProgress(percentage, text) {
+        const progressFill = document.getElementById('progress-fill');
+        const loadingText = document.getElementById('loading-text');
+        const loadingPercentage = document.getElementById('loading-percentage');
+        
+        if (progressFill) progressFill.style.width = `${percentage}%`;
+        if (loadingText) loadingText.textContent = text;
+        if (loadingPercentage) loadingPercentage.textContent = `${percentage}%`;
+    }
+    
+    // Override fetch to always use cache when available
+    static setupCacheInterception() {
+        const originalFetch = window.fetch;
+        window.fetch = async (input, init) => {
+            try {
+                const cache = await caches.open('flipfusion-v1-assets');
+                const cachedResponse = await cache.match(input);
+                if (cachedResponse) {
+                    return cachedResponse.clone();
+                }
+            } catch (error) {
+                console.warn('Cache lookup failed, falling back to network:', error);
+            }
+            return originalFetch(input, init);
+        };
+    }
+}
+
 class FlipFusionGame {
     constructor() {
         this.config = {
@@ -63,10 +205,16 @@ class FlipFusionGame {
         this.init();
     }
     
-    init() {
+    async init() {
+        // Only initialize game logic, don't show home screen yet
         this.loadConfig();
         this.bindEvents();
         this.updateConfigDisplay();
+    }
+    
+    showHomeScreen() {
+        document.getElementById('loading-screen').classList.remove('active');
+        document.getElementById('home-screen').classList.add('active');
     }
     
     loadConfig() {
@@ -407,7 +555,7 @@ class FlipFusionGame {
         document.getElementById('game-screen').classList.add('active');
     }
     
-    showHomeScreen() {
+    showHomeScreenFromGame() {
         document.getElementById('game-screen').classList.remove('active');
         document.getElementById('home-screen').classList.add('active');
     }
@@ -457,7 +605,7 @@ class FlipFusionGame {
     
     goHome() {
         this.stopTimer();
-        this.showHomeScreen();
+        this.showHomeScreenFromGame();
         this.hideWinModal();
     }
     
@@ -469,7 +617,42 @@ class FlipFusionGame {
     }
 }
 
-// Initialize the game when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    new FlipFusionGame();
+// Initialize the asset loading and game when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+    // Setup cache interception for future requests
+    AssetLoader.setupCacheInterception();
+    
+    // Start asset loading
+    const assetLoader = new AssetLoader();
+    let loadSuccess = false;
+    let attempts = 0;
+    const maxAttempts = 3;
+    
+    while (!loadSuccess && attempts < maxAttempts) {
+        attempts++;
+        try {
+            loadSuccess = await assetLoader.loadAssets();
+        } catch (error) {
+            console.error(`Asset loading attempt ${attempts} failed:`, error);
+            if (attempts < maxAttempts) {
+                assetLoader.updateProgress(0, `Retrying... (${attempts}/${maxAttempts})`);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+            }
+        }
+    }
+    
+    if (!loadSuccess) {
+        assetLoader.updateProgress(0, 'Loading failed. Starting with limited assets...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+    
+    // Initialize the game
+    const game = new FlipFusionGame();
+    await game.init();
+    
+    // Small delay for smooth transition
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Show home screen
+    game.showHomeScreen();
 });

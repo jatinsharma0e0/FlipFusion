@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen active">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <h1 class="game-title">FLIPFUSION</h1>
+                <div class="loading-subtitle">Memory Matching Game</div>
+            </div>
+            
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="loading-text" id="loading-text">Initializing...</div>
+                <div class="loading-percentage" id="loading-percentage">0%</div>
+            </div>
+            
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Home Screen -->
-    <div id="home-screen" class="screen active">
+    <div id="home-screen" class="screen">
         <div class="game-container">
             <div class="config-card">
                 <h1 class="game-title">FlipFusion</h1>
