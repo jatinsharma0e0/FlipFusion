@@ -18,11 +18,11 @@ class AssetLoader {
             '/assets/fonts/font2.ttf'
         ];
         
-        // Card set configurations
+        // Card set configurations (reordered)
         const cardSets = {
+            monsters: { count: 25, extension: 'png' },
             classic: { count: 100, extension: 'svg' },
-            flags: { count: 100, extension: 'svg' },
-            monsters: { count: 25, extension: 'png' }
+            flags: { count: 100, extension: 'svg' }
         };
         
         // Add card back images
@@ -138,9 +138,9 @@ class AssetLoader {
 class FlipFusionGame {
     constructor() {
         this.config = {
-            boardSize: 'large',
+            boardSize: 'medium',
             matchablePairs: 1,
-            cardSet: 'classic',
+            cardSet: 'monsters',
             mode: 'casual'
         };
         
@@ -159,11 +159,11 @@ class FlipFusionGame {
             timeRemaining: 0
         };
         
-        // Card set configurations with extensions and counts
+        // Card set configurations with extensions and counts (reordered)
         this.cardSetConfigs = {
+            monsters: { extension: 'png', count: 25, prefix: 'monster' }, // Updated with many cards
             classic: { extension: 'svg', count: 100, prefix: 'classic' }, // Updated with many cards
-            flags: { extension: 'svg', count: 100, prefix: 'flag' }, // Updated with many cards  
-            monsters: { extension: 'png', count: 25, prefix: 'monster' } // Updated with many cards
+            flags: { extension: 'svg', count: 100, prefix: 'flag' } // Updated with many cards  
         };
         
         // Generate card arrays dynamically
