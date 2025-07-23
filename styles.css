@@ -251,47 +251,46 @@ body {
 
 .config-card {
     background: #f5f5dc;
-    border: 6px solid #8b4513;
-    border-radius: 25px;
-    padding: min(50px, 4vh) min(40px, 4vw);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-    max-width: min(600px, 90vw);
-    width: 100%;
+    border: 0.6vw solid #8b4513;
+    border-radius: 2.5vw;
+    padding: 4vh 4vw;
+    box-shadow: 0 1.2vw 3.6vw rgba(0, 0, 0, 0.4);
+    width: 90vw;
+    max-width: 60vw;
+    height: auto;
     text-align: center;
     position: relative;
-    /* Ensure card fits within viewport */
-    max-height: calc(100vh - 40px);
-    max-height: calc(100dvh - 40px);
-    overflow-y: auto;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .game-title {
     font-family: 'Font2', 'Arial', sans-serif;
-    font-size: min(48px, 8vw, 8vh);
+    font-size: 5vw;
     color: #8b4513;
-    margin-bottom: min(40px, 4vh);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    letter-spacing: 2px;
+    margin-bottom: 3vh;
+    text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.2vw;
 }
 
 .config-section {
-    margin-bottom: min(30px, 3vh);
+    margin-bottom: 2.5vh;
 }
 
 .config-section h2 {
     font-family: 'Font2', 'Arial', sans-serif;
     color: #8b4513;
-    font-size: min(24px, 4vw, 4vh);
+    font-size: 2.4vw;
     font-weight: bold;
-    margin-bottom: min(20px, 2vh);
-    letter-spacing: 1px;
+    margin-bottom: 1.5vh;
+    letter-spacing: 0.1vw;
     text-transform: uppercase;
 }
 
 .button-group {
     display: flex;
-    gap: 10px;
+    gap: 1vw;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -299,17 +298,17 @@ body {
 .config-btn {
     font-family: 'Font1', 'Arial', sans-serif;
     background: #f5f5dc;
-    border: 3px solid #8b4513;
+    border: 0.3vw solid #8b4513;
     color: #8b4513;
-    padding: min(15px, 1.8vh) min(30px, 4vw);
-    border-radius: 12px;
+    padding: 1.5vh 3vw;
+    border-radius: 1.2vw;
     font-weight: bold;
-    font-size: min(16px, 2.5vw, 2.5vh);
+    font-size: 1.6vw;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    min-width: min(100px, 15vw);
+    min-width: 10vw;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.1vw;
     will-change: transform;
 }
 
@@ -330,25 +329,25 @@ body {
 .card-preview-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: min(15px, 2vw);
+    gap: 1.5vw;
     justify-content: center;
-    max-width: min(500px, 80vw);
+    width: 100%;
     margin: 0 auto;
 }
 
 .card-preview {
-    width: min(65px, 12vw);
-    height: min(90px, 16vw);
+    width: 100%;
+    aspect-ratio: 3/4;
     background: #fff;
-    border: 3px solid #8b4513;
-    border-radius: 10px;
+    border: 0.3vw solid #8b4513;
+    border-radius: 1vw;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: min(8px, 1vw);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0.8vw;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
 }
 
 .card-preview:hover {
@@ -386,16 +385,16 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: min(20px, 2.5vh) min(50px, 6vw);
-    border-radius: 20px;
-    font-size: min(26px, 4vw, 4vh);
+    padding: 2.5vh 6vw;
+    border-radius: 2vw;
+    font-size: 2.6vw;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: min(30px, 3vh);
-    letter-spacing: 2px;
+    margin-top: 3vh;
+    letter-spacing: 0.2vw;
     text-transform: uppercase;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.6vw 1.5vw rgba(0, 0, 0, 0.3);
 }
 
 .start-button:hover {
@@ -705,230 +704,182 @@ body {
 /* Responsive design with full viewport coverage */
 @media (max-width: 1200px) {
     .config-card {
-        max-width: min(550px, 90vw);
-        padding: min(45px, 4vw) min(35px, 3vw);
+        width: 85vw;
+        max-width: 70vw;
+        padding: 3.5vh 3.5vw;
     }
     
     .game-title {
-        font-size: min(48px, 8vw);
-    }
-}
-
-@media (max-width: 768px) {
-    .screen {
-        padding: min(10px, 1vw);
-    }
-    
-    .config-card {
-        padding: min(30px, 4vw) min(25px, 3vw);
-        margin: 0;
-        max-width: 95vw;
-        border-radius: 20px;
-        border-width: 4px;
-        /* Ensure card fits in viewport height */
-        max-height: calc(100vh - 20px);
-        max-height: calc(100dvh - 20px);
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    
-    .game-title {
-        font-size: min(36px, 8vw);
-        margin-bottom: min(30px, 4vh);
-    }
-    
-    .config-section {
-        margin-bottom: min(25px, 3vh);
+        font-size: 4.5vw;
     }
     
     .config-section h2 {
-        font-size: min(18px, 4.5vw);
-        margin-bottom: min(15px, 2vh);
+        font-size: 2.2vw;
     }
     
     .config-btn {
-        padding: min(12px, 1.5vh) min(20px, 2.5vw);
-        font-size: min(14px, 3.5vw);
-        min-width: min(80px, 12vw);
+        font-size: 1.4vw;
+        padding: 1.2vh 2.5vw;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .config-card {
+        width: 95vw;
+        max-width: 95vw;
+        padding: 3vh 3vw;
+        border-radius: 3vw;
+        border-width: 0.5vw;
+    }
+    
+    .game-title {
+        font-size: 7vw;
+        margin-bottom: 2.5vh;
+    }
+    
+    .config-section {
+        margin-bottom: 2vh;
+    }
+    
+    .config-section h2 {
+        font-size: 4vw;
+        margin-bottom: 1.2vh;
+    }
+    
+    .config-btn {
+        padding: 1.2vh 4vw;
+        font-size: 3vw;
+        min-width: 12vw;
+        border-radius: 2vw;
     }
     
     .card-preview-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: min(10px, 1.5vw);
-        max-width: min(300px, 60vw);
-    }
-    
-    .card-preview {
-        width: min(50px, 12vw);
-        height: min(70px, 16vw);
-        padding: min(5px, 0.8vw);
-        border-width: 2px;
+        gap: 2vw;
     }
     
     .start-button {
-        padding: min(15px, 2vh) min(35px, 6vw);
-        font-size: min(18px, 4vw);
-        margin-top: min(25px, 3vh);
-    }
-    
-    /* Game board responsive sizing */
-    .game-card {
-        width: min(60px, 12vw);
-        height: min(60px, 12vw);
-    }
-    
-    .game-board {
-        gap: min(8px, 1vw);
-        padding: min(15px, 2vw);
-    }
-    
-    .game-board.small,
-    .game-board.medium,
-    .game-board.large {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: min(320px, 90vw);
-        justify-content: center;
-    }
-    
-    .game-header {
-        flex-direction: column;
-        gap: min(15px, 2vh);
-        padding: min(10px, 1.5vw) min(15px, 2vw);
-        margin-bottom: min(15px, 2vh);
-    }
-    
-    .game-info {
-        gap: min(20px, 4vw);
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .info-item {
-        font-size: min(14px, 3.5vw);
+        padding: 2vh 8vw;
+        font-size: 4vw;
+        margin-top: 2.5vh;
+        border-radius: 3vw;
     }
 }
 
 @media (max-width: 480px) {
-    .screen {
-        padding: min(5px, 1vw);
-    }
-    
     .config-card {
-        padding: min(20px, 4vw) min(15px, 3vw);
-        border-radius: 15px;
-        border-width: 3px;
+        width: 98vw;
         max-width: 98vw;
-        max-height: calc(100vh - 10px);
-        max-height: calc(100dvh - 10px);
+        padding: 2.5vh 2.5vw;
+        border-radius: 4vw;
+        border-width: 0.4vw;
     }
     
     .game-title {
-        font-size: min(32px, 8vw);
-        margin-bottom: min(25px, 4vh);
+        font-size: 8vw;
+        margin-bottom: 2vh;
     }
     
     .config-section {
-        margin-bottom: min(20px, 3vh);
+        margin-bottom: 1.8vh;
     }
     
     .config-section h2 {
-        font-size: min(16px, 4vw);
-        margin-bottom: min(12px, 1.5vh);
-        letter-spacing: 0.5px;
+        font-size: 4.5vw;
+        margin-bottom: 1vh;
+        letter-spacing: 0.1vw;
     }
     
     .button-group {
-        gap: min(8px, 1.5vw);
-        justify-content: center;
+        gap: 2.5vw;
     }
     
     .config-btn {
-        padding: min(10px, 1.5vh) min(16px, 3vw);
-        font-size: min(12px, 3vw);
-        min-width: min(70px, 15vw);
-        border-radius: 8px;
+        padding: 1vh 5vw;
+        font-size: 3.5vw;
+        min-width: 15vw;
+        border-radius: 3vw;
+        border-width: 0.4vw;
     }
     
     .card-preview-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: min(8px, 1.5vw);
-        max-width: min(200px, 50vw);
-    }
-    
-    .card-preview {
-        width: min(45px, 18vw);
-        height: min(60px, 24vw);
-        padding: min(4px, 0.8vw);
-        border-width: 2px;
-        border-radius: 6px;
+        gap: 3vw;
     }
     
     .start-button {
-        padding: min(12px, 2vh) min(25px, 5vw);
-        font-size: min(16px, 4vw);
-        margin-top: min(20px, 3vh);
-    }
-    
-    /* Ultra-small screen game adjustments */
-    .game-card {
-        width: min(50px, 18vw);
-        height: min(50px, 18vw);
-    }
-    
-    .game-board {
-        gap: min(6px, 1.2vw);
-        padding: min(10px, 2vw);
-    }
-    
-    .game-board.small,
-    .game-board.medium,
-    .game-board.large {
-        max-width: min(280px, 95vw);
-    }
-    
-    .action-btn {
-        padding: min(8px, 1.2vh) min(12px, 2.5vw);
-        font-size: min(16px, 4vw);
-    }
-    
-    .modal-content {
-        padding: min(30px, 6vw);
-        max-width: 95vw;
-        margin: min(10px, 2vw);
+        padding: 1.8vh 10vw;
+        font-size: 4.5vw;
+        margin-top: 2vh;
+        border-radius: 4vw;
     }
 }
 
 @media (max-width: 320px) {
     .config-card {
-        padding: min(15px, 4vw) min(10px, 3vw);
+        width: 100vw;
         max-width: 100vw;
-        border-radius: 10px;
-        border-width: 2px;
+        padding: 2vh 2vw;
+        border-radius: 5vw;
+        border-width: 0.3vw;
     }
     
     .game-title {
-        font-size: min(28px, 9vw);
-        margin-bottom: min(20px, 4vh);
+        font-size: 9vw;
+        margin-bottom: 1.5vh;
     }
     
     .config-section h2 {
-        font-size: min(14px, 4.5vw);
+        font-size: 5vw;
+        margin-bottom: 0.8vh;
     }
     
     .config-btn {
-        padding: min(8px, 1.2vh) min(12px, 3vw);
-        font-size: min(11px, 3.5vw);
-        min-width: min(60px, 18vw);
+        padding: 0.8vh 6vw;
+        font-size: 4vw;
+        min-width: 18vw;
+        border-radius: 4vw;
     }
     
-    .game-card {
-        width: min(45px, 20vw);
-        height: min(45px, 20vw);
+    .start-button {
+        padding: 1.5vh 12vw;
+        font-size: 5vw;
+        margin-top: 1.5vh;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .config-card {
+        width: 90vw;
+        max-width: 90vw;
+        padding: 2vh 4vw;
+        border-radius: 2vw;
     }
     
-    .card-preview {
-        width: min(40px, 22vw);
-        height: min(55px, 28vw);
+    .game-title {
+        font-size: 4vw;
+        margin-bottom: 1.5vh;
+    }
+    
+    .config-section {
+        margin-bottom: 1.5vh;
+    }
+    
+    .config-section h2 {
+        font-size: 2.5vw;
+        margin-bottom: 0.8vh;
+    }
+    
+    .config-btn {
+        padding: 1vh 3vw;
+        font-size: 2vw;
+        min-width: 8vw;
+    }
+    
+    .start-button {
+        padding: 1.5vh 6vw;
+        font-size: 2.5vw;
+        margin-top: 1.5vh;
     }
 }
 
