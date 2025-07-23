@@ -45,7 +45,7 @@ class FlipFusionGame {
             large: { rows: 8, cols: 8, total: 64 }
         };
         
-        // Mode configurations with time and move limits per board size
+        // Difficulty configurations with time and move limits per board size
         this.modeConfigs = {
             rush: {
                 small: { timeLimit: 180 }, // 3 minutes for small board
@@ -428,7 +428,13 @@ class FlipFusionGame {
         
         finalTime.textContent = this.formatTime(timeToShow);
         finalMoves.textContent = this.gameState.moves;
-        finalMode.textContent = this.config.mode.charAt(0).toUpperCase() + this.config.mode.slice(1);
+        // Display proper difficulty names
+        const difficultyNames = {
+            'casual': 'Casual',
+            'rush': 'Time',
+            'moves': 'Moves'
+        };
+        finalMode.textContent = difficultyNames[this.config.mode] || 'Casual';
         
         if (won) {
             resultTitle.textContent = 'Congratulations!';
