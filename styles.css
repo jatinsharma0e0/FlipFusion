@@ -253,33 +253,38 @@ body {
     background: #f5f5dc;
     border: 6px solid #8b4513;
     border-radius: 25px;
-    padding: 50px 40px;
+    padding: min(50px, 4vh) min(40px, 4vw);
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-    max-width: 600px;
+    max-width: min(600px, 90vw);
     width: 100%;
     text-align: center;
     position: relative;
+    /* Ensure card fits within viewport */
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .game-title {
     font-family: 'Font2', 'Arial', sans-serif;
-    font-size: 48px;
+    font-size: min(48px, 8vw, 8vh);
     color: #8b4513;
-    margin-bottom: 40px;
+    margin-bottom: min(40px, 4vh);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
 }
 
 .config-section {
-    margin-bottom: 30px;
+    margin-bottom: min(30px, 3vh);
 }
 
 .config-section h2 {
     font-family: 'Font2', 'Arial', sans-serif;
     color: #8b4513;
-    font-size: 24px;
+    font-size: min(24px, 4vw, 4vh);
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: min(20px, 2vh);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -296,13 +301,13 @@ body {
     background: #f5f5dc;
     border: 3px solid #8b4513;
     color: #8b4513;
-    padding: 15px 30px;
+    padding: min(15px, 1.8vh) min(30px, 4vw);
     border-radius: 12px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: min(16px, 2.5vw, 2.5vh);
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    min-width: 100px;
+    min-width: min(100px, 15vw);
     text-transform: uppercase;
     letter-spacing: 1px;
     will-change: transform;
@@ -325,15 +330,15 @@ body {
 .card-preview-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
+    gap: min(15px, 2vw);
     justify-content: center;
-    max-width: 500px;
+    max-width: min(500px, 80vw);
     margin: 0 auto;
 }
 
 .card-preview {
-    width: 65px;
-    height: 90px;
+    width: min(65px, 12vw);
+    height: min(90px, 16vw);
     background: #fff;
     border: 3px solid #8b4513;
     border-radius: 10px;
@@ -342,7 +347,7 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 8px;
+    padding: min(8px, 1vw);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -381,13 +386,13 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: 20px 50px;
+    padding: min(20px, 2.5vh) min(50px, 6vw);
     border-radius: 20px;
-    font-size: 26px;
+    font-size: min(26px, 4vw, 4vh);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 30px;
+    margin-top: min(30px, 3vh);
     letter-spacing: 2px;
     text-transform: uppercase;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
