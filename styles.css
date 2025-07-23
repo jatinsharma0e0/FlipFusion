@@ -93,6 +93,7 @@ body {
 }
 
 .loading-subtitle {
+    font-family: 'Arial', sans-serif;
     font-size: 1.1em;
     color: #8b4513;
     opacity: 0.8;
@@ -125,6 +126,7 @@ body {
 }
 
 .loading-text {
+    font-family: 'Arial', sans-serif;
     font-size: 1.1em;
     margin-bottom: 8px;
     color: #8b4513;
@@ -132,6 +134,7 @@ body {
 }
 
 .loading-percentage {
+    font-family: 'Arial', sans-serif;
     font-size: 1.4em;
     font-weight: bold;
     color: #8b4513;
