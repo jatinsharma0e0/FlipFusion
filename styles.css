@@ -346,6 +346,8 @@ body {
 
 
 
+
+
 .card-back {
     background: #fff;
     border: 3px solid #ddd;
@@ -360,6 +362,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     padding: 10px;
+    transform: rotateY(0deg);
 }
 
 .card-back img {
