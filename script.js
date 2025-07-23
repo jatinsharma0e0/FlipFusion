@@ -15,16 +15,13 @@ class AssetLoader {
             '/styles.css',
             '/script.js',
             '/assets/fonts/font1.ttf',
-            '/assets/fonts/font2.ttf',
-            '/assets/coming-soon.svg'
+            '/assets/fonts/font2.ttf'
         ];
         
         // Card set configurations
         const cardSets = {
-            animals: { count: 2, extension: 'svg' },
             classic: { count: 100, extension: 'svg' },
             flags: { count: 100, extension: 'svg' },
-            maths: { count: 2, extension: 'svg' },
             monsters: { count: 25, extension: 'png' }
         };
         
@@ -37,9 +34,7 @@ class AssetLoader {
         Object.entries(cardSets).forEach(([setName, config]) => {
             const loadCount = Math.min(config.count, setName === 'classic' || setName === 'flags' ? 32 : config.count);
             for (let i = 1; i <= loadCount; i++) {
-                const prefix = setName === 'animals' ? 'animal' : 
-                             setName === 'maths' ? 'math' :
-                             setName === 'classic' ? 'classic' :
+                const prefix = setName === 'classic' ? 'classic' :
                              setName === 'flags' ? 'flag' : 'monster';
                 this.assetList.push(`/assets/cards_set_${setName}/${prefix}${i}.${config.extension}`);
             }
@@ -145,7 +140,7 @@ class FlipFusionGame {
         this.config = {
             boardSize: 'large',
             matchablePairs: 1,
-            cardSet: 'animals',
+            cardSet: 'classic',
             mode: 'casual'
         };
         
@@ -166,10 +161,8 @@ class FlipFusionGame {
         
         // Card set configurations with extensions and counts
         this.cardSetConfigs = {
-            animals: { extension: 'svg', count: 2, prefix: 'animal' },
             classic: { extension: 'svg', count: 100, prefix: 'classic' }, // Updated with many cards
             flags: { extension: 'svg', count: 100, prefix: 'flag' }, // Updated with many cards  
-            maths: { extension: 'svg', count: 2, prefix: 'math' },
             monsters: { extension: 'png', count: 25, prefix: 'monster' } // Updated with many cards
         };
         
@@ -259,11 +252,6 @@ class FlipFusionGame {
         
         document.querySelectorAll('[data-card]').forEach(preview => {
             preview.addEventListener('click', (e) => {
-                // Don't allow selection of coming soon card
-                if (e.currentTarget.classList.contains('coming-soon')) {
-                    return;
-                }
-                
                 document.querySelectorAll('[data-card]').forEach(p => p.classList.remove('active'));
                 e.currentTarget.classList.add('active');
                 this.config.cardSet = e.currentTarget.dataset.card;
