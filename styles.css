@@ -386,10 +386,16 @@ body {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-/* Game screen styles */
+/* Game screen styles - fully responsive */
 #game-screen {
     flex-direction: column;
-    padding: 20px;
+    padding: 2vw;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
 
 .game-header {
@@ -397,18 +403,19 @@ body {
     justify-content: space-between;
     align-items: center;
     background: rgba(245, 245, 220, 0.9);
-    border-radius: 15px;
-    padding: 15px 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 1.5vw;
+    padding: 1.5vh 2.5vw;
+    margin-bottom: 2vh;
+    box-shadow: 0 0.4vw 1.2vw rgba(0, 0, 0, 0.2);
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 2vw;
+    width: 100%;
 }
 
 .game-info {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 4vw;
 }
 
 .info-item {
@@ -417,11 +424,11 @@ body {
     font-family: 'Font2', 'Arial', sans-serif;
     color: #8b4513;
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
 }
 
 .label {
-    margin-right: 6px;
+    margin-right: 0.6vw;
 }
 
 #timer,
@@ -429,13 +436,13 @@ body {
     font-family: 'Arial', sans-serif;
     color: #8b4513;
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
 }
 
 .game-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1.5vw;
 }
 
 .action-btn {
@@ -443,11 +450,13 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: 10px 14px;
-    border-radius: 8px;
+    padding: 1vh 1.4vw;
+    border-radius: 0.8vw;
     cursor: pointer;
-    font-size: 18px;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
     transition: all 0.3s ease;
+    min-width: 3vw;
+    min-height: 3vh;
 }
 
 .action-btn:hover {
@@ -461,43 +470,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: calc(100vh - 12vh);
+    overflow: hidden;
 }
 
 .game-board {
     display: grid;
-    gap: 10px;
-    padding: 20px;
+    gap: 1vw;
+    padding: 2vw;
     background: rgba(245, 245, 220, 0.1);
-    border-radius: 15px;
+    border-radius: 1.5vw;
+    width: fit-content;
+    height: fit-content;
+    max-width: 95vw;
+    max-height: 85vh;
 }
 
-/* Game board sizes with responsive considerations */
+/* Game board sizes with fully responsive layout */
 .game-board.small {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 400px;
-    justify-content: center;
+    max-width: min(80vw, 40vh);
 }
 
 .game-board.medium {
     grid-template-columns: repeat(8, 1fr);
-    max-width: 800px;
-    justify-content: center;
+    max-width: min(95vw, 80vh);
 }
 
 .game-board.large {
     grid-template-columns: repeat(8, 1fr);
-    max-width: 900px;
-    justify-content: center;
+    max-width: min(95vw, 85vh);
 }
 
-/* Card styles - square proportions for clean layout */
+/* Card styles - fully responsive with viewport units */
 .game-card {
-    width: 80px;
-    height: 80px;
+    width: min(10vw, 8vh);
+    height: min(10vw, 8vh);
     position: relative;
     cursor: pointer;
     perspective: 1000px;
     aspect-ratio: 1;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 120px;
+    max-height: 120px;
 }
 
 .card-inner {
@@ -520,18 +537,18 @@ body {
 
 .card-back {
     background: #fff;
-    border: 3px solid #ddd;
+    border: 0.3vw solid #ddd;
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    padding: 10px;
+    padding: 1vw;
     transform: rotateY(0deg);
 }
 
@@ -543,18 +560,18 @@ body {
 
 .card-front {
     background: #fff;
-    border: 3px solid #ddd;
+    border: 0.3vw solid #ddd;
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
     transform: rotateY(180deg);
-    padding: 10px;
+    padding: 1vw;
 }
 
 .card-front img {
@@ -871,6 +888,277 @@ body {
         padding: 1.2vh 10vw;
         font-size: clamp(0.8rem, 4.5vw, 1rem);
         margin-top: 1vh;
+    }
+}
+
+/* Game Screen Responsive Design */
+
+/* Desktop and Large Screens */
+@media (min-width: 1201px) {
+    .game-board.small {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 50vw;
+    }
+    
+    .game-board.medium {
+        grid-template-columns: repeat(8, 1fr);
+        max-width: 80vw;
+    }
+    
+    .game-board.large {
+        grid-template-columns: repeat(8, 1fr);
+        max-width: 85vw;
+    }
+    
+    .game-card {
+        width: min(8vw, 10vh);
+        height: min(8vw, 10vh);
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1200px) and (min-width: 769px) {
+    #game-screen {
+        padding: 1.5vw;
+    }
+    
+    .game-header {
+        padding: 1.2vh 2vw;
+        margin-bottom: 1.5vh;
+        border-radius: 1.2vw;
+    }
+    
+    .game-info {
+        gap: 3vw;
+    }
+    
+    .action-btn {
+        padding: 0.8vh 1.2vw;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    }
+    
+    .game-board.small {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 60vw;
+    }
+    
+    .game-board.medium {
+        grid-template-columns: repeat(8, 1fr);
+        max-width: 90vw;
+    }
+    
+    .game-board.large {
+        grid-template-columns: repeat(8, 1fr);
+        max-width: 95vw;
+    }
+    
+    .game-card {
+        width: min(9vw, 8vh);
+        height: min(9vw, 8vh);
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+    #game-screen {
+        padding: 2vw;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        padding: 2vh 3vw;
+        margin-bottom: 2vh;
+        gap: 1.5vh;
+        border-radius: 2vw;
+    }
+    
+    .game-info {
+        gap: 6vw;
+    }
+    
+    .info-item {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+    
+    .action-btn {
+        padding: 1.5vh 4vw;
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        border-radius: 2vw;
+    }
+    
+    .game-board {
+        gap: 2vw;
+        padding: 3vw;
+        border-radius: 3vw;
+    }
+    
+    .game-board.small {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 85vw;
+    }
+    
+    .game-board.medium {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 85vw;
+    }
+    
+    .game-board.large {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 85vw;
+    }
+    
+    .game-card {
+        width: min(18vw, 12vh);
+        height: min(18vw, 12vh);
+    }
+    
+    .card-back,
+    .card-front {
+        border: 0.5vw solid #ddd;
+        border-radius: 2vw;
+        padding: 1.5vw;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+    #game-screen {
+        padding: 1vw;
+    }
+    
+    .game-header {
+        padding: 1vh 2vw;
+        margin-bottom: 1vh;
+        border-radius: 1vw;
+    }
+    
+    .game-info {
+        gap: 4vw;
+    }
+    
+    .info-item {
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+    }
+    
+    .action-btn {
+        padding: 1vh 2vw;
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+    }
+    
+    .game-board {
+        gap: 1.5vw;
+        padding: 2vw;
+    }
+    
+    .game-board.small {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 70vw;
+    }
+    
+    .game-board.medium {
+        grid-template-columns: repeat(8, 1fr);
+        max-width: 95vw;
+    }
+    
+    .game-board.large {
+        grid-template-columns: repeat(8, 1fr);
+        max-width: 95vw;
+    }
+    
+    .game-card {
+        width: min(10vw, 10vh);
+        height: min(10vw, 10vh);
+    }
+}
+
+/* Small Mobile Portrait */
+@media (max-width: 480px) and (orientation: portrait) {
+    #game-screen {
+        padding: 2vw;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        padding: 2vh 4vw;
+        margin-bottom: 2vh;
+        gap: 1.5vh;
+        border-radius: 3vw;
+    }
+    
+    .game-info {
+        gap: 8vw;
+    }
+    
+    .info-item {
+        font-size: clamp(1rem, 4.5vw, 1.3rem);
+    }
+    
+    .action-btn {
+        padding: 1.8vh 5vw;
+        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        border-radius: 3vw;
+    }
+    
+    .game-board {
+        gap: 3vw;
+        padding: 4vw;
+        border-radius: 4vw;
+    }
+    
+    .game-board.small {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 90vw;
+    }
+    
+    .game-board.medium {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 90vw;
+    }
+    
+    .game-board.large {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 90vw;
+    }
+    
+    .game-card {
+        width: min(20vw, 10vh);
+        height: min(20vw, 10vh);
+    }
+    
+    .card-back,
+    .card-front {
+        border: 0.6vw solid #ddd;
+        border-radius: 3vw;
+        padding: 2vw;
+    }
+}
+
+/* Very Small Mobile Portrait */
+@media (max-width: 320px) and (orientation: portrait) {
+    .game-header {
+        padding: 1.5vh 3vw;
+        gap: 1vh;
+    }
+    
+    .info-item {
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+    }
+    
+    .action-btn {
+        padding: 1.5vh 4vw;
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+    }
+    
+    .game-board {
+        gap: 2.5vw;
+        padding: 3vw;
+    }
+    
+    .game-card {
+        width: min(22vw, 8vh);
+        height: min(22vw, 8vh);
+        min-width: 50px;
+        min-height: 50px;
     }
 }
 
