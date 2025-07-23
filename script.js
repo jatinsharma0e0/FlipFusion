@@ -177,7 +177,7 @@ class FlipFusionGame {
         this.boardSizes = {
             small: { rows: 4, cols: 4, total: 16 },
             medium: { rows: 4, cols: 8, total: 32 },
-            large: { rows: 8, cols: 8, total: 64 }
+            large: { rows: 5, cols: 8, total: 40 }
         };
         
         // Difficulty configurations with time and move limits per board size
@@ -185,12 +185,12 @@ class FlipFusionGame {
             rush: {
                 small: { timeLimit: 180 }, // 3 minutes for small board
                 medium: { timeLimit: 300 }, // 5 minutes for medium board
-                large: { timeLimit: 480 } // 8 minutes for large board
+                large: { timeLimit: 360 } // 6 minutes for large board (40 cards)
             },
             moves: {
                 small: { moveLimit: 25 }, // 25 moves for 16 cards (small)
                 medium: { moveLimit: 50 }, // 50 moves for 32 cards (medium)
-                large: { moveLimit: 100 } // 100 moves for 64 cards (large)
+                large: { moveLimit: 65 } // 65 moves for 40 cards (large)
             },
             casual: {} // No limits
         };

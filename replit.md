@@ -119,7 +119,7 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Card Set Cleanup**: Removed animals, maths card sets and coming soon placeholder - now features only classic, flags, and monsters card sets
 - **Default Configuration**: Updated default card set to classic cards for better user experience
 - **UI Improvements**: Centered card set previews in a 3-column grid layout for cleaner appearance
-- **Board Size Updates**: Changed to Small (4×4, 16 cards), Medium (4×8, 32 cards), Large (8×8, 64 cards)
+- **Board Size Updates**: Changed to Small (4×4, 16 cards), Medium (4×8, 32 cards), Large (5×8, 40 cards)
 - **Fully Responsive Game Screen**: Made game board completely responsive across all devices with dynamic card sizing and grid layouts optimized for different screen sizes
 - **Dynamic Card Loading**: Implemented dynamic card loading system with proper file extension detection
 - **Enhanced Card Sets**: Updated flags, classic, and monsters sets with 100, 100, and 25 cards respectively
@@ -140,3 +140,6 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Touch-Optimized Controls**: Disabled pinch-zoom, double-tap zoom, and gesture conflicts for smooth mobile gameplay with passive event prevention
 - **Dynamic Viewport Management**: JavaScript-powered viewport resize handling for perfect fit across device rotations and browser UI changes
 - **Fluid Responsive Layout**: All elements use relative units (vw, vh) eliminating need for scrollbars or fixed dimensions
+- **Card Set Reordering**: Updated card set order to Monsters (first), Classic (second), Flags (third) with Monsters as default selection
+- **Default Configuration Updates**: Set board size to Medium, matchable pairs to 1, difficulty to Casual, and card set to Monsters
+- **Large Board Optimization**: Reduced large board from 8×8 (64 cards) to 5×8 (40 cards) for better gameplay balance with adjusted time/move limits
