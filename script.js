@@ -309,7 +309,7 @@ class FlipFusionGame {
             flippedCards: [],
             matchedPairs: 0,
             moves: 0,
-            timer: 0,
+            timer: 0, // Always tracks elapsed time (seconds since start)
             gameStarted: true,
             gameInterval: null,
             isPaused: false,
@@ -323,7 +323,6 @@ class FlipFusionGame {
         if (this.config.mode === 'rush') {
             const modeConfig = this.modeConfigs.rush[this.config.boardSize];
             this.gameState.timeRemaining = modeConfig.timeLimit;
-            this.gameState.timer = modeConfig.timeLimit;
         } else if (this.config.mode === 'moves') {
             const modeConfig = this.modeConfigs.moves[this.config.boardSize];
             this.gameState.movesRemaining = modeConfig.moveLimit;
@@ -471,18 +470,17 @@ class FlipFusionGame {
     startTimer() {
         this.gameState.gameInterval = setInterval(() => {
             if (!this.gameState.isPaused && !this.gameState.isGameOver) {
+                // Always increment elapsed time
+                this.gameState.timer++;
+                
                 if (this.config.mode === 'rush') {
-                    // Count down for rush mode
+                    // Decrement remaining time for rush mode
                     this.gameState.timeRemaining--;
-                    this.gameState.timer = this.gameState.timeRemaining;
                     
                     if (this.gameState.timeRemaining <= 0) {
                         this.endGame(false);
                         return;
                     }
-                } else {
-                    // Count up for casual and moves mode
-                    this.gameState.timer++;
                 }
                 
                 this.updateGameDisplay();
@@ -517,17 +515,25 @@ class FlipFusionGame {
     
     updateGameDisplay() {
         // Update timer display based on mode
-        let timerValue = this.gameState.timer;
+        let timerValue;
         if (this.config.mode === 'rush') {
+            // Show remaining time for rush mode
             timerValue = Math.max(0, this.gameState.timeRemaining);
+        } else {
+            // Show elapsed time for casual and moves mode
+            timerValue = this.gameState.timer;
         }
         
         document.getElementById('timer').textContent = this.formatTime(timerValue);
         
         // Update moves display based on mode
-        let movesValue = this.gameState.moves;
+        let movesValue;
         if (this.config.mode === 'moves') {
+            // Show remaining moves for moves mode
             movesValue = Math.max(0, this.gameState.movesRemaining);
+        } else {
+            // Show total moves for casual and rush mode
+            movesValue = this.gameState.moves;
         }
         document.getElementById('moves').textContent = movesValue;
     }
@@ -555,12 +561,8 @@ class FlipFusionGame {
         const finalMoves = document.getElementById('final-moves');
         const finalMode = document.getElementById('final-mode');
         
-        // Set appropriate time display (elapsed time, not remaining)
+        // Always show elapsed time in results
         let timeToShow = this.gameState.timer;
-        if (this.config.mode === 'rush') {
-            const originalTime = this.modeConfigs.rush[this.config.boardSize].timeLimit;
-            timeToShow = originalTime - Math.max(0, this.gameState.timeRemaining);
-        }
         
         finalTime.textContent = this.formatTime(timeToShow);
         finalMoves.textContent = this.gameState.moves;
