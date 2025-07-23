@@ -503,18 +503,18 @@ body {
     max-width: min(95vw, 85vh);
 }
 
-/* Card styles - fully responsive with viewport units */
+/* Card styles - rectangular with rounded corners */
 .game-card {
     width: min(10vw, 8vh);
-    height: min(10vw, 8vh);
+    height: min(12vw, 10vh);
     position: relative;
     cursor: pointer;
     perspective: 1000px;
-    aspect-ratio: 1;
+    aspect-ratio: 5/6;
     min-width: 40px;
-    min-height: 40px;
+    min-height: 48px;
     max-width: 120px;
-    max-height: 120px;
+    max-height: 144px;
 }
 
 .card-inner {
@@ -537,18 +537,18 @@ body {
 
 .card-back {
     background: #fff;
-    border: 0.3vw solid #ddd;
+    border: 0.2vw solid #ddd;
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 0.8vw;
+    border-radius: 1.2vw;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    padding: 1vw;
+    padding: 0.3vw;
     transform: rotateY(0deg);
 }
 
@@ -560,18 +560,18 @@ body {
 
 .card-front {
     background: #fff;
-    border: 0.3vw solid #ddd;
+    border: 0.2vw solid #ddd;
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 0.8vw;
+    border-radius: 1.2vw;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
     transform: rotateY(180deg);
-    padding: 1vw;
+    padding: 0.3vw;
 }
 
 .card-front img {
@@ -912,7 +912,7 @@ body {
     
     .game-card {
         width: min(8vw, 10vh);
-        height: min(8vw, 10vh);
+        height: min(9.6vw, 12vh);
     }
 }
 
@@ -954,7 +954,7 @@ body {
     
     .game-card {
         width: min(9vw, 8vh);
-        height: min(9vw, 8vh);
+        height: min(10.8vw, 9.6vh);
     }
 }
 
@@ -1009,14 +1009,14 @@ body {
     
     .game-card {
         width: min(18vw, 12vh);
-        height: min(18vw, 12vh);
+        height: min(21.6vw, 14.4vh);
     }
     
     .card-back,
     .card-front {
-        border: 0.5vw solid #ddd;
-        border-radius: 2vw;
-        padding: 1.5vw;
+        border: 0.4vw solid #ddd;
+        border-radius: 2.5vw;
+        padding: 0.8vw;
     }
 }
 
@@ -1067,7 +1067,7 @@ body {
     
     .game-card {
         width: min(10vw, 10vh);
-        height: min(10vw, 10vh);
+        height: min(12vw, 12vh);
     }
 }
 
@@ -1122,14 +1122,14 @@ body {
     
     .game-card {
         width: min(20vw, 10vh);
-        height: min(20vw, 10vh);
+        height: min(24vw, 12vh);
     }
     
     .card-back,
     .card-front {
-        border: 0.6vw solid #ddd;
+        border: 0.5vw solid #ddd;
         border-radius: 3vw;
-        padding: 2vw;
+        padding: 0.6vw;
     }
 }
 
@@ -1156,9 +1156,9 @@ body {
     
     .game-card {
         width: min(22vw, 8vh);
-        height: min(22vw, 8vh);
+        height: min(26.4vw, 9.6vh);
         min-width: 50px;
-        min-height: 50px;
+        min-height: 60px;
     }
 }
 
