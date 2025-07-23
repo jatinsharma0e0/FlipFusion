@@ -60,6 +60,7 @@ body {
     background: linear-gradient(135deg, #2e8b57, #228b22);
     /* Full viewport coverage */
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
     width: 100vw;
     /* Disable all scrolling */
     overflow: hidden;
@@ -94,11 +95,12 @@ body {
     display: none;
     width: 100vw;
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
     position: fixed;
     top: 0;
     left: 0;
     /* Responsive padding that scales with viewport */
-    padding: 2vw;
+    padding: min(20px, 2vw);
     /* Ensure no overflow */
     overflow: hidden;
     /* Prevent any scrolling */
@@ -121,40 +123,40 @@ body {
 
 .loading-container {
     text-align: center;
-    max-width: 45vw;
-    width: 90vw;
-    padding: 4vh 4vw;
+    max-width: 450px;
+    width: 90%;
+    padding: 40px;
     background: #f5f5dc;
-    border: 0.6vw solid #8b4513;
-    border-radius: 2.5vw;
-    box-shadow: 0 2vw 4vw rgba(0, 0, 0, 0.3);
+    border: 6px solid #8b4513;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .loading-logo {
-    margin-bottom: 4vh;
+    margin-bottom: 40px;
 }
 
 .loading-logo .game-title {
-    font-size: 5vw;
+    font-size: 3em;
     margin: 0;
     font-weight: bold;
     color: #8b4513;
-    text-shadow: 0.2vw 0.2vw 0.4vw rgba(139, 69, 19, 0.3);
-    letter-spacing: 0.2vw;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+    letter-spacing: 2px;
     font-style: italic;
 }
 
 .loading-subtitle {
     font-family: 'Arial', sans-serif;
-    font-size: 1.8vw;
+    font-size: 1.1em;
     color: #8b4513;
     opacity: 0.8;
-    margin-top: 0.8vh;
+    margin-top: 8px;
     font-weight: 300;
 }
 
 .loading-progress {
-    margin: 3vh 0;
+    margin: 30px 0;
 }
 
 .progress-bar {
