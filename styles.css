@@ -58,8 +58,8 @@ html {
 body {
     font-family: 'Font1', 'Arial', sans-serif;
     background: linear-gradient(135deg, #2e8b57, #228b22);
-    /* Full viewport coverage */
-    height: 100vh;
+    /* Adaptive height for browser chrome */
+    min-height: 100vh;
     width: 100vw;
     /* Disable all scrolling */
     overflow: hidden;
@@ -83,22 +83,15 @@ body {
     padding: 0;
     /* Prevent context menu */
     -webkit-context-menu: none;
-    /* Fixed positioning to fill viewport */
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
 /* Screen management */
 .screen {
     display: none;
     width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
     /* Responsive padding that scales with viewport */
-    padding: 2vw;
+    padding: 1vw;
     /* Ensure no overflow */
     overflow: hidden;
     /* Prevent any scrolling */
@@ -123,7 +116,8 @@ body {
     text-align: center;
     max-width: 45vw;
     width: 90vw;
-    padding: 4vh 4vw;
+    max-height: 80vh;
+    padding: 3vh 4vw;
     background: #f5f5dc;
     border: 0.6vw solid #8b4513;
     border-radius: 2.5vw;
@@ -131,11 +125,11 @@ body {
 }
 
 .loading-logo {
-    margin-bottom: 4vh;
+    margin-bottom: 2vh;
 }
 
 .loading-logo .game-title {
-    font-size: 5vw;
+    font-size: clamp(2rem, 5vw, 4rem);
     margin: 0;
     font-weight: bold;
     color: #8b4513;
@@ -146,7 +140,7 @@ body {
 
 .loading-subtitle {
     font-family: 'Arial', sans-serif;
-    font-size: 1.8vw;
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem);
     color: #8b4513;
     opacity: 0.8;
     margin-top: 0.8vh;
@@ -154,7 +148,7 @@ body {
 }
 
 .loading-progress {
-    margin: 3vh 0;
+    margin: 2vh 0;
 }
 
 .progress-bar {
@@ -251,11 +245,11 @@ body {
     background: #f5f5dc;
     border: 0.6vw solid #8b4513;
     border-radius: 2.5vw;
-    padding: 4vh 4vw;
+    padding: 3vh 4vw;
     box-shadow: 0 1.2vw 3.6vw rgba(0, 0, 0, 0.4);
     width: 90vw;
     max-width: 60vw;
-    height: auto;
+    max-height: 90vh;
     text-align: center;
     position: relative;
     display: flex;
@@ -265,23 +259,23 @@ body {
 
 .game-title {
     font-family: 'Font2', 'Arial', sans-serif;
-    font-size: 5vw;
+    font-size: clamp(2rem, 5vw, 4rem);
     color: #8b4513;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
     text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
     letter-spacing: 0.2vw;
 }
 
 .config-section {
-    margin-bottom: 2.5vh;
+    margin-bottom: 1.8vh;
 }
 
 .config-section h2 {
     font-family: 'Font2', 'Arial', sans-serif;
     color: #8b4513;
-    font-size: 2.4vw;
+    font-size: clamp(1rem, 2.4vw, 1.8rem);
     font-weight: bold;
-    margin-bottom: 1.5vh;
+    margin-bottom: 1vh;
     letter-spacing: 0.1vw;
     text-transform: uppercase;
 }
@@ -298,13 +292,13 @@ body {
     background: #f5f5dc;
     border: 0.3vw solid #8b4513;
     color: #8b4513;
-    padding: 1.5vh 3vw;
+    padding: 1.2vh 2.5vw;
     border-radius: 1.2vw;
     font-weight: bold;
-    font-size: 1.6vw;
+    font-size: clamp(0.8rem, 1.6vw, 1.2rem);
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    min-width: 10vw;
+    min-width: 8vw;
     text-transform: uppercase;
     letter-spacing: 0.1vw;
     will-change: transform;
@@ -383,13 +377,13 @@ body {
     background: #8b4513;
     color: #f5f5dc;
     border: none;
-    padding: 2.5vh 6vw;
+    padding: 2vh 5vw;
     border-radius: 2vw;
-    font-size: 2.6vw;
+    font-size: clamp(1.2rem, 2.6vw, 2rem);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 3vh;
+    margin-top: 2vh;
     letter-spacing: 0.2vw;
     text-transform: uppercase;
     box-shadow: 0 0.6vw 1.5vw rgba(0, 0, 0, 0.3);

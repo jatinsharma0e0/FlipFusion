@@ -684,7 +684,7 @@ function disableBrowserInteractions() {
     }, { passive: false });
 }
 
-// Responsive viewport adjustment
+// Enhanced responsive viewport adjustment for both fullscreen and windowed modes
 function handleViewportResize() {
     // Update CSS custom properties for dynamic sizing
     const vh = window.innerHeight * 0.01;
@@ -692,9 +692,24 @@ function handleViewportResize() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     document.documentElement.style.setProperty('--vw', `${vw}px`);
     
-    // Ensure body maintains full viewport
-    document.body.style.height = `${window.innerHeight}px`;
-    document.body.style.width = `${window.innerWidth}px`;
+    // Detect if we're in fullscreen mode
+    const isFullscreen = window.innerHeight === screen.height || 
+                        document.fullscreenElement ||
+                        document.webkitFullscreenElement ||
+                        document.mozFullScreenElement ||
+                        document.msFullscreenElement;
+    
+    // Adjust body and screen heights appropriately
+    const targetHeight = isFullscreen ? '100vh' : `${window.innerHeight}px`;
+    document.body.style.height = targetHeight;
+    document.body.style.minHeight = targetHeight;
+    
+    // Update all screen elements
+    const screens = document.querySelectorAll('.screen');
+    screens.forEach(screen => {
+        screen.style.height = targetHeight;
+        screen.style.minHeight = targetHeight;
+    });
 }
 
 // Initialize the asset loading and game when the page loads
@@ -702,12 +717,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Disable all browser interactions immediately
     disableBrowserInteractions();
     
-    // Setup viewport handling
+    // Setup enhanced viewport handling for both fullscreen and windowed modes
     handleViewportResize();
     window.addEventListener('resize', handleViewportResize);
     window.addEventListener('orientationchange', () => {
         setTimeout(handleViewportResize, 100);
     });
+    
+    // Handle fullscreen changes
+    document.addEventListener('fullscreenchange', handleViewportResize);
+    document.addEventListener('webkitfullscreenchange', handleViewportResize);
+    document.addEventListener('mozfullscreenchange', handleViewportResize);
+    document.addEventListener('MSFullscreenChange', handleViewportResize);
     
     // Setup cache interception for future requests
     AssetLoader.setupCacheInterception();
