@@ -118,6 +118,7 @@ Performance requirement: Game must be responsive for all devices without any lag
 - **Project Migration**: Successfully migrated from Replit Agent to standard Replit environment with Python 3.11 HTTP server
 - **Card Set Cleanup**: Removed animals, maths card sets and coming soon placeholder - now features only classic, flags, and monsters card sets
 - **Default Configuration**: Updated default card set to classic cards for better user experience
+- **UI Improvements**: Centered card set previews in a 3-column grid layout for cleaner appearance
 - **Board Size Updates**: Changed to Small (4×4, 16 cards), Medium (4×8, 32 cards), Large (8×8, 64 cards)
 - **Dynamic Card Loading**: Implemented dynamic card loading system with proper file extension detection
 - **Enhanced Card Sets**: Updated flags, classic, and monsters sets with 100, 100, and 25 cards respectively

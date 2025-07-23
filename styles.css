@@ -320,10 +320,11 @@ body {
 
 .card-preview-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1vw;
     justify-content: center;
     width: 100%;
+    max-width: 36vw;
     margin: 0 auto;
 }
 
