@@ -6,19 +6,20 @@ FlipFusion is a modern, browser-based memory matching card game built with vanil
 
 **Genre:** Puzzle / Memory  
 **Platform:** Web Browser (Cross-platform)
+**Play here 👉🏻** - [https://flipfusion.vercel.app]
 
 ## Demo & Screenshots
 
 ### Game Configuration Screen
-![Configuration Screen](attached_assets/image_1753358101402.png)
+![Configuration Screen](assets/screenshots/Screenshot1.png)
 *Configure your game with different board sizes, difficulty modes, and card themes*
 
 ### Gameplay - Cards Face Down
-![Gameplay Start](attached_assets/image_1753358103982.png)
+![Gameplay Start](assets/screenshots/Screenshot2.png)
 *Medium board (4×8) with monsters card set - all cards face down at start*
 
 ### Gameplay - Finding Matches
-![Active Gameplay](attached_assets/image_1753358106513.png)
+![Active Gameplay](assets/screenshots/Screenshot3.png)
 *Cards revealed during gameplay showing the matching mechanic in action*
 
 ## Features
